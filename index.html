@@ -1,30 +1,173 @@
 <!DOCTYPE html>
 <head>
-	<!-- load up libraries, etc. from CDN -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-
-	<!-- Critical Path CSS -->
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Cantata+One|Crimson+Text|Lato');
-		body {
-			font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-			letter-spacing: 1px;
-		}
-
-		h1 {
-			/*font-family: 'Crimson Text', serif;*/
-			font-family: 'Cantata One',Georgia,"Times New Roman",serif;
-		}
-	</style>
-
+  <!-- load up libraries, etc. from CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <!-- Critical Path CSS -->
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Cantata+One|Crimson+Text|Lato');
+    body {
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+    letter-spacing: 1px;
+    }
+    h1 {
+    /*font-family: 'Crimson Text', serif;*/
+    font-family: 'Cantata One',Georgia,"Times New Roman",serif;
+    }
+    a {
+    color: #fff;
+    }
+    a:hover {
+    text-decoration: underline;
+    color: #fff;
+    }
+    #page-container {
+    height: 147px;
+    padding: 0;
+    margin: 0;
+    }
+    #top-header {
+    position: fixed:
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #003399;
+    padding-top: 8px;
+    transition: background-color 0.4s, transform 0.4s, opacity 0.4s ease-in-out;
+    }
+    #ohlaw-info {
+    height: 33px;
+    font-family: 'Cantata One',Georgia,"Times New Roman",serif;
+    font-size: 13px;
+    line-height: 1em;
+    color: #fff;
+    float: right;
+    }
+    #main-container {
+    top: 33px;
+    }
+    #top-navigation {
+    padding-left: 497px;
+    }
+    .clearfix { clear: both; }
+    .social-icons {
+    list-style-type: none;
+    position: relative;
+    display: inline-block;
+    }
+    .social-icons>li {
+    display: inline;
+    }
+    .social-icons span {
+    /*display: none;*/
+    }
+  </style>
 </head>
 <body>
-	<h1>It works!</h1>
-	<p>And now for something completely different</p>
-	<img rel="Testing" src="content/wp-content/uploads/2016/11/ohlaw-logo-trans-570-2.png" alt="The Law Offices of Owen Hathaway" id="logo" data-height-percentage="75" scale="0" data-actual-width="614" data-actual-height="112">
+  <div id="page-container">
+    <div id="top-header">
+      <div class="container clearfix">
+        <div id="ohlaw-info">
+          <span style="display: none;" class="glyphicons-earphone"></span>
+          <a href="tel:866-883-1507" alt="OHLaw Toll Free Number">866.883.1507</a> toll-free &nbsp;&nbsp;
+          <a href="tel:970-818-3052" alt="OHLaw Phone Number">970.818.3052</a> local &nbsp;&nbsp;
+          <a href="mailto:contact@ohlawcolorado.com" rel="OHLaw Email" alt="OHLaw Email">contact@ohlawcolorado.com</a>
+          <ul class="social-icons">
+            <li class="social-icon social-facebook"><a href="https://facebook.com/ohlawCO"><span>Facebook</span></a></li>
+            <li class="social-icon social-googleplus"><a href="https://plus.google.com/b/100818160176830692294/"</a><span>Google+</span></li>
+            <li class="social-icon social-rss"><a href="/content/feed"><span>RSS</span></a></li>
+          </ul>
+        </div>
+        <header id="main-header" data-height-onload="114" data-height-loaded="true" data-fixed-height-onload="54">
+          <div class="container clearfix menu_container">
+            <div class="logo_container">
+              <span class="logo_helper"></span>
+              <a href="/">
+              <img rel="Testing" src="content/wp-content/uploads/2016/11/ohlaw-logo-trans-570-2.png" alt="The Law Offices of Owen Hathaway" id="logo" data-height-percentage="75" scale="0" data-actual-width="614" data-actual-height="112">
+              </a>
+            </div>
+            <div id="top-navigation" data-height="100" data-fixed-height="40" style="padding-left: 497px;">
+              <nav id="top-menu-nav">
+              <ul class="">
+                <li><a href="/content/">Home</a></li>
+              </ul>
+              <li>
+                <ul class="dropdown">
+              <li id="" class="dropdown-toggle">
+                <span>Services</span>
+                <ul class="sub-menu">
+                  <li class=""><a href="/content/small-business/">Small Business</a></li>
+                  <li class=""><a href="/content/nonprofit-planning/">Nonprofit Planning</a></li>
+                  <li class=""><a href="content/estate-planning/">Estate Planning</a></li>
+                  <li class=""><a href="http://cleanslatecolorado.com">Bankruptcy</a></li>
+                </ul>
+              </li>
+              <ul class="">
+                <li>
+                  <ul>
+                    <li class="dropdown-toggle"><a href="/content/policies/">Policies</a></li>
+                    <li>
+                      <ul>
+                        <li class=""><a href="/content/policies/fees-and-other-policies/">Fees and Other Policies</a></li>
+                        <li class=""><a href="/content/policies/unbundled-services/">Unbundled Services</a></li>
+                        <li class=""><a href="/content/policies/privacy-policy/">Privacy Policy</a></li>
+                        <li class=""><a href="/content/policies/terms-of-use/">Terms of Use</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                <li class=""><a href="/content/blog/">Blog</a></li>
+                <li class=""><a href="/content/contact/">Contact</a></li>
+              </ul>
+              <span id="et_search_icon"></span>
+            </div>
+            <div id="mobile_nav_menu" style="display: none;">
+              <div class="mobile_nav closed">
+                <span class="select_page">Select Page</span>
+                <span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+                <ul class="mobile_menu">
+                  <li class=""><a href="/content/">Home</a></li>
+                  <li class="">
+                    <a href="http://ohlawcolorado.com">Services</a>
+                    <ul class="sub-menu">
+                      <li class=""><a href="/content/small-business/">Small Business</a></li>
+                      <li class=""><a href="/content/nonprofit-planning/">Nonprofit Planning</a></li>
+                      <li class=""><a href="/content/estate-planning/">Estate Planning</a></li>
+                      <li class=""><a href="http://cleanslatecolorado.com">Bankruptcy</a></li>
+                    </ul>
+                  </li>
+                  <li class="">
+                    <a href="/content/policies/">Policies</a>
+                    <ul class="sub-menu">
+                      <li class=""><a href="/content/policies/fees-and-other-policies/">Fees and Other Policies</a></li>
+                      <li class=""><a href="/content/policies/unbundled-services/">Unbundled Services</a></li>
+                      <li class=""><a href="/content/policies/privacy-policy/">Privacy Policy</a></li>
+                      <li class=""><a href="/content/policies/terms-of-use/">Terms of Use</a></li>
+                    </ul>
+                  </li>
+                  <li class=""><a href="/content/blog/">Blog</a></li>
+                  <li class=""><a href="/content/contact/">Contact</a></li>
+                  <li class="wpmenucartli"<a class="wpmenucart-contents empty-wpmenucart" style="display:none">&nbsp;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- #top-navigation -->
+      </div>
+      <!-- .container -->
+      <div class="search_outer">
+      <div class="container search_form_container">
+      <form role="search" method="get" class="search-form" action="/content/">
+      <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+      </form>
+      <span class="close_search_field"></span>
+      </div>
+      </div>
+      </header>
+    </div>
+  </div>
+  </div>
 </body>
