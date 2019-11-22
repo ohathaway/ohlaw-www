@@ -1,8 +1,8 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
-    "version": "4.0.0",
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
+    "title": "OHLaw",
+    "name": "ohlaw-www",
+    "version": "2.0.0",
+    "description": "A simplified, flat html version of the OHLaw website with no Wordpress",
     "keywords": [
         "css",
         "sass",
@@ -11,34 +11,34 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
+    "homepage": "https://ohlawcolorado.com",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
+        "url": "https://bitbucket.org/ohlaw/ohlaw-www/issues",
         "email": "feedback@startbootstrap.com"
     },
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "OHLaw",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Owen Hathaway (http://ohlawcolorado.com/about/)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://ohlaw@bitbucket.org/ohlaw/ohlaw-www.git"
     },
     "dependencies": {
-        "bootstrap": "4.0.0",
+        "bootstrap": "4.3.1",
         "devicons": "^1.8.0",
-        "jquery": "3.3.1",
-        "npm": "^5.10.0",
+        "jquery": "3.4.1",
+        "npm": "^6.13.1",
         "simple-line-icons": "^2.4.1"
     },
     "devDependencies": {
         "browser-sync": "^2.26.3",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "^3.10.0",
-        "gulp-header": "^2.0.7",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-header": "^2.0.9",
         "gulp-rename": "^1.4.0",
-        "gulp-sass": "^3.2.1",
-        "gulp-uglify": "^3.0.1"
+        "gulp-sass": "^4.0.2",
+        "gulp-uglify": "^3.0.2"
     }
 }
