@@ -1,34 +1,35 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var header = require('gulp-header');
-var cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
-var uglify = require('gulp-uglify');
-var pkg = require('./package.json');
+var gulp        = require('gulp');
+var vinyl       = require('vinyl');
+var sass        = require('gulp-sass');
+var header      = require('gulp-header');
+var cleanCSS    = require('gulp-clean-css');
+var rename      = require('gulp-rename');
+var sourcemaps  = require('gulp-sourcemaps');
+var uglify      = require('gulp-uglify');
+var googleFonts = require('gulp-google-webfonts');
 var browserSync = require('browser-sync').create();
+var pkg         = require('./package.json');
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * OHLaw - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2019-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://ohlawcolorado.com/<%= pkg.name %>/LICENSE)\n',
+  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
+  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
   ' */\n',
   ''
 ].join('');
 
-// Copy third party libraries from /node_modules into /vendor
-gulp.task('vendor', function() {
+// Bootstrap
+function bootstrap() {
+  return gulp.src(['./node_modules/bootstrap/dist/**/*',
+                  './node_modules/bootstrap/dist/css/bootstrap-grid*',
+                  './node_modules/bootstrap/dist/css/bootstrap-reboot*'])
+    .pipe(gulp.dest('./src/vendor/bootstrap'));
+};
 
-  // Bootstrap
-  gulp.src([
-      './node_modules/bootstrap/dist/**/*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
-    ])
-    .pipe(gulp.dest('./vendor/bootstrap'))
-
-  // Devicons
-  gulp.src([
+// Devicons
+function devicons() {
+  return gulp.src([
       './node_modules/devicons/**/*',
       '!./node_modules/devicons/*.json',
       '!./node_modules/devicons/*.md',
@@ -37,102 +38,141 @@ gulp.task('vendor', function() {
       '!./node_modules/devicons/!SVG',
       '!./node_modules/devicons/!SVG/**/*'
     ])
-    .pipe(gulp.dest('./vendor/devicons'))
+    .pipe(gulp.dest('./src/vendor/devicons'))
+    ;
+};
 
-  // Font Awesome
-  gulp.src([
-      './node_modules/font-awesome/**/*',
-      '!./node_modules/font-awesome/{less,less/*}',
-      '!./node_modules/font-awesome/{scss,scss/*}',
-      '!./node_modules/font-awesome/.*',
-      '!./node_modules/font-awesome/*.{txt,json,md}'
-    ])
-    .pipe(gulp.dest('./vendor/font-awesome'))
+// Font Awesome
+function fontawesome_css() {
+  return gulp.src('./node_modules/@fortawesome/fontawesome-free/css/*')
+          .pipe(gulp.dest('./src/vendor/fontawesome/css'))
+          ;
+};
+function fontawesome_fonts() {
+  return gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/*')
+          .pipe(gulp.dest('./src/vendor/fontawesome/webfonts'))
+          ;
+};
 
-  // jQuery
-  gulp.src([
+// jQuery
+function jquery() {
+  return gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
     .pipe(gulp.dest('./vendor/jquery'))
+    ;
 
   // jQuery Easing
   gulp.src([
       './node_modules/jquery.easing/*.js'
     ])
     .pipe(gulp.dest('./vendor/jquery-easing'))
+    ;
+};
 
-  // Simple Line Icons
-  gulp.src([
-      './node_modules/simple-line-icons/fonts/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/fonts'))
+// Simple Line Icons
+function line_icons() {
+  return gulp.parallel( gulp.src('./node_modules/simple-line-icons/fonts/**')
+    .pipe(gulp.dest('./src/vendor/simple-line-icons/fonts')),
+    gulp.src('./node_modules/simple-line-icons/css/**')
+      .pipe(gulp.dest('./vendor/simple-line-icons/css'))
+    );
+};
 
-  gulp.src([
-      './node_modules/simple-line-icons/css/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/css'))
+// Google Fonts
+function google_fonts() {
+  return gulp.src('./src/css/google-fonts.list')
+          .pipe(googleFonts({}))
+          .pipe(gulp.dest('./src/css/fonts'))
+          ;
+}
 
-});
+// Copy third party libraries from /node_modules into /vendor
+function vendors(cb) {
+   gulp.parallel('bootstrap', 'devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
+   cb();
+};
 
+/*
+ * Deal with styles
+ */
 // Compile SCSS
-gulp.task('css:compile', function() {
+function css_compile() {
   return gulp.src('./scss/**/*.scss')
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
-});
+    .pipe(gulp.dest('./dist/css'))
+};
 
 // Minify CSS
-gulp.task('css:minify', ['css:compile'], function() {
-  return gulp.src([
-      './css/*.css',
-      '!./css/*.min.css'
-    ])
+function css_minify() {
+  return gulp.src('./src/css/*.css')
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
-});
+};
 
 // CSS
-gulp.task('css', ['css:compile', 'css:minify']);
+function styles(cb) {
+  gulp.series('css_compile', 'css_minify');
+  cb();
+};
 
 // Minify JavaScript
-gulp.task('js:minify', function() {
+function js_minify() {
   return gulp.src([
-      './js/*.js',
-      '!./js/*.min.js'
+      './src/js/*.js',
+      '!./src/js/*.min.js'
     ])
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());
-});
+};
 
-// JS
-gulp.task('js', ['js:minify']);
+function minifyHtml() {
+};
 
-// Default task
-gulp.task('default', ['css', 'js', 'vendor']);
 
 // Configure the browserSync task
-gulp.task('browserSync', function() {
+function watch() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./src/"
     }
   });
-});
+  gulp.watch('/src/scss/**/*.scss', styles);
+  gulp.watch('/src/css/*.css', styles);
+  gulp.watch('/src/js/*.js', js_minify);
+  gulp.watch('./src/*.html', browserSync.reload);
+};
 
-// Dev task
-gulp.task('dev', ['css', 'js', 'browserSync'], function() {
-  gulp.watch('./scss/*.scss', ['css']);
-  gulp.watch('./js/*.js', ['js']);
-  gulp.watch('./*.html', browserSync.reload);
-});
+// Default task
+var defaultTask = function() {
+  gulp.parallel('styles', 'js_minify', 'vendor');
+}
+
+// Vendor includes
+exports.bootstrap    = bootstrap;
+exports.devicons     = devicons;
+exports.fontawesome  = gulp.parallel(fontawesome_css, fontawesome_fonts);
+exports.jquery       = jquery;
+exports.line_icons   = line_icons;
+exports.google_fonts = google_fonts;
+exports.vendors      = vendors;
+
+exports.css_compile = css_compile;
+exports.css_minify  = css_minify;
+exports.styles      = styles
+
+exports.js_minify = js_minify;
+
+exports.watch = watch;
+exports.dev   = gulp.series(vendors, styles, js_minify, watch);

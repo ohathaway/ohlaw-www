@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'Cantata One';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src: local('Cantata One'), local('CantataOne-Regular'), url(Cantata_One-normal-400.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: italic;
+	font-weight: 400;
+	font-display: auto;
+	src: local('Lato Italic'), local('Lato-Italic'), url(Lato-italic-400.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src: local('Lato Regular'), local('Lato-Regular'), url(Lato-normal-400.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 500;
+	font-display: auto;
+	src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(Roboto-italic-500.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-display: auto;
+	src: local('Roboto Medium'), local('Roboto-Medium'), url(Roboto-normal-500.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
