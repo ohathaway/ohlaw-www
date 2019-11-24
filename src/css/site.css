@@ -1,6 +1,6 @@
 body {
   font-family: Lato,Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 36px;
 }
@@ -17,6 +17,10 @@ a:hover { color: #002277; }
   top: 32px;
   background: #003399;
   color: #ffffff;
+}
+
+.navbar-brand img {
+  width: 80%;
 }
 
 main {
