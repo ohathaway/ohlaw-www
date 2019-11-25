@@ -85,7 +85,7 @@ function line_icons() {
 // Google Fonts
 function google_fonts() {
   return gulp.src('./src/css/google-fonts.list')
-          .pipe(googleFonts({}))
+          .pipe(googleFonts({ cssFilename: "google-fonts.css" }))
           .pipe(gulp.dest('./src/css/fonts'))
           ;
 }
