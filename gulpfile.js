@@ -12,19 +12,17 @@ var pkg         = require('./package.json');
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
+  ' * OHLaw www template - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Copyright 2019-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
+  ' * Licensed under <%= pkg.license %> (https://ohlawcolorado.com/LICENSE)\n',
   ' */\n',
   ''
 ].join('');
 
-// Bootstrap
-function bootstrap() {
-  return gulp.src(['./node_modules/bootstrap/dist/**/*',
-                  './node_modules/bootstrap/dist/css/bootstrap-grid*',
-                  './node_modules/bootstrap/dist/css/bootstrap-reboot*'])
-    .pipe(gulp.dest('./src/vendor/bootstrap'));
+// Bootstrap JS
+function bootstrap_js() {
+ return gulp.src('./node_modules/bootstrap/dist/js/*')
+   .pipe(gulp.dest('./src/vendor/bootstrap'));
 };
 
 // Devicons
@@ -92,7 +90,7 @@ function google_fonts() {
 
 // Copy third party libraries from /node_modules into /vendor
 function vendors(cb) {
-   gulp.parallel('bootstrap', 'devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
+   gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
    cb();
 };
 
@@ -101,11 +99,11 @@ function vendors(cb) {
  */
 // Compile SCSS
 function css_compile() {
-  return gulp.src('./scss/**/*.scss')
+  return gulp.src('./src/scss/**/*.scss')
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./src/css'))
 };
 
 // Minify CSS
@@ -162,19 +160,19 @@ var defaultTask = function() {
 }
 
 // Vendor includes
-exports.bootstrap    = bootstrap;
+exports.bootstrap_js = bootstrap_js;
 exports.devicons     = devicons;
 exports.fontawesome  = gulp.parallel(fontawesome_css, fontawesome_fonts);
 exports.jquery       = jquery;
 exports.line_icons   = line_icons;
 exports.google_fonts = google_fonts;
-exports.vendors      = vendors;
+exports.vendors      = gulp.parallel(devicons,jquery,line_icons,google_fonts);
 
 exports.css_compile = css_compile;
 exports.css_minify  = css_minify;
-exports.styles      = styles
+exports.styles      = gulp.parallel(css_compile, css_minify);
 
 exports.js_minify = js_minify;
 
 exports.watch = watch;
-exports.dev   = gulp.series(vendors, styles, js_minify, watch);
+exports.dev   = gulp.series(vendors, css_compile, watch);

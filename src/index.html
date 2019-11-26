@@ -35,12 +35,7 @@
   <link rel="apple-touch-icon-precomposed" href="/img/cropped-ohlaw_icon_512-180x180.png" />
   <meta name="msapplication-TileImage" content="/img/cropped-ohlaw_icon_512-270x270.png" />
 
-  <!-- vendor code -->
-  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
-
   <!-- Site styles -->
-  <link rel="stylesheet" href="/css/fonts/fonts.css" />
   <link rel="stylesheet" href="/css/site.css" />
 
 </head>
@@ -69,7 +64,7 @@
         <div class="collapse navbar-collapse d-flex justify-content-end pr-5" id="navbar-main_header">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Services</a>
+            <a class="nav-item nav-link" href="#lines-of-business">Services</a>
             <a class="nav-item nav-link" href="#">Blog</a>
             <a class="nav-item nav-link" href="#">Schedule</a>
             <a class="nav-item nav-link" href="#">Contact</a>
@@ -81,8 +76,8 @@
       <section class="container-fluid" id="front-splash">
         <div class="row align-items-center">
           <div class="col">
-            <div class="jumbotron mx-auto" id="slogan-hero">
-              <h1>Reach for your dreams</h1>
+            <div class="jumbotron" id="slogan-hero">
+              <h1 class="text-center text-white">Reach for your dreams</h1>
             </div>
           </div>
         </div>
@@ -103,12 +98,11 @@
             <div class="p-5">
               <h4>Small Business</h4>
               <p>We are a small business. We’ve started and run several small business. We understand the reward as well as the challenges small business owners face. Choosing an entity, dividing ownership, managing liability, vendor contracts, staying out of tax trouble, employees? We can help you keep your focus on building your business while managing predictable legal costs.</p>
-              <p><a class="learn-more small-business" href="#">Learn more</a></p>
-              <p><a class="show-less small-business d-none" href="#">Show less</a></p>
+              <p><button class="btn btn-outline-primary learn-more small-business" data-toggle="collapse" data-target=".service-description.small-business">Learn more</button></p>
             </div>
           </div>
         </div>
-        <div class="row service-description small-business bg-white d-none">
+        <div class="row service-description small-business bg-white collapse">
           <div class="col-3 bg-primary cta-sidebar">
           </div>
           <div class="col-9 p-5">
@@ -130,22 +124,21 @@
             <div class="p-5">
               <h4>Nonprofits</h4>
               <p>Lots of business attorneys will do a nonprofit incorporation. Not all of them have actually filed a 990, wrestled with UBIT issues, or considered whether a B corp might be more appropriate. We believe non profits have an important role to play in our society, but we also believe in the proverb, “No margin, no mission.” We can help your nonprofit set itself up for long-term, mission-driven sustainability.</p>
-              <p><a class="learn-more nonprofit" href="#">Learn more</a></p>
-              <p><a class="show-less nonprofit d-none" href="#">Show less</a></p>
+              <p><button class="btn btn-outline-primary learn-more nonprofit" data-toggle="collapse" data-target=".service-description.nonprofit">Learn more</button></p>
             </div>
           </div>
           <div class="col-sm m-0 service-img">
             <img src="/img/dotorgtablet_1024_smallest.jpg">
           </div>
         </div>
-        <div class="row service-description nonprofit bg-white d-none">
-          <div class="col-3 bg-primary cta-sidebar">
-          </div>
+        <div class="row service-description nonprofit bg-white collapse">
           <div class="col-9 p-5">
             <h2>NonProfit Planning</h4>
             <p>Planning a nonprofit can be deceptively similar to traditional for-profit business planning. Many business attorneys will provide pretty much the same advice to a nonprofit startup as they do to any other small business (compare the big online legal services nonprofit offerings with their standard business offerings). Then again, many attorneys who focus primarily on nonprofits forget the old adage of ‘no margin, no mission.’ In our work with both small businesses and nonprofits, we’ve helped organizations that focused exclusively on mission, those whose mission required them to think more like an entrepreneur, and many in between.</p>
             <p>At its core, a nonprofit does face many of the same corporate issues as any other business. We certainly know that world. We also have helped folks wrestle with the intricacies of giving life to their charitable gift to the world. Is starting a nonprofit really the right thing to do? What about giving to an existing foundation or even creating your own? Have you thought about B corporations? Many states offer these as an option in between nonprofits and traditional business organizations. If you do go the nonprofit route, is a 501(c)(3) in your future? If so, how are you going to avoid UBIT while creating a sustaining revenue to support the mission?</p>
             <p>As part of our commitment to giving back, we include a number of nonprofit-specific services in our business formation bundles for nonprofits at the same cost as our standard business bundles. If you’re considering making it your life’s work to give back to your community, let us help you do it in a way that honors your commitment while putting a solid structure in place that leads to mission accomplished.</p>
+          </div>
+          <div class="col-3 bg-primary cta-sidebar">
           </div>
         </div>
         <div class="row no-gutters">
@@ -156,12 +149,11 @@
             <div class="p-5">
               <h4>Estate Planning</h4>
               <p>You work hard toward your life’s accomplishments. Whether that includes some measure of wealth, a business legacy, or raising a family you are proud of, the way you pass it all on to the people and causes you care about is an important part of your life’s plan. We can help you  express your wishes for what happens to you and your estate when you no longer can express them.</p>
-              <p><a class="learn-more estate-planning" href="#">Learn more</a></p>
-              <p><a class="show-less estate-planning d-none" href="#">Show less</a></p>
+              <p><button class="btn btn-outline-primary learn-more estate-planning" data-toggle="collapse" data-target=".service-description.estate-planning">Learn more</button></p>
             </div>
           </div>
         </div>
-        <div class="row service-description estate-planning bg-white d-none">
+        <div class="row service-description estate-planning bg-white collapse">
           <div class="col-3 bg-primary cta-sidebar">
           </div>
           <div class="col-9 p-5">
@@ -176,19 +168,18 @@
             <div class="p-5">
               <h4>Bankruptcy</h4>
               <p>Sometimes life throws obstacles at us that we didn’t expect. Those obstacles can derail our financial life and block our view of the things that are important to us. We strongly believe that all people should have an opportunity to pursue their dreams regardless of the curveballs they’ve been thrown or the financial mistakes they’ve made in the past. For this reason, we created our bankruptcy program, Clean Slate Colorado.</p>
-              <p><a class="learn-more bankruptcy" href="#">Learn more</a></p>
-              <p><a class="show-less bankruptcy d-none" href="#">Show-less</a></p>
+              <p><button class="btn btn-outline-primary learn-more bankruptcy" data-toggle="collapse" data-target=".service-description.bankruptcy">Learn more</button></p>
             </div>
           </div>
           <div class="col-sm service-img">
             <img src="/img/helpinghand_1024_smallest.jpg">
           </div>
         </div>
-        <div class="row service-description bankruptcy bg-white d-none">
-          <div class="col-3 bg-primary cta-sidebar">
-          </div>
+        <div class="row service-description bankruptcy bg-white collapse">
           <div class="col-9 p-5">
             <h2>Bankruptcy Header</h4>
+          </div>
+          <div class="col-3 bg-primary cta-sidebar">
           </div>
         </div>
       </section>
@@ -196,13 +187,13 @@
     <footer>
       <div class="row p-5">
         <div class="col footer-address">
-          <ul>
-            <li><a class="text-white" href="tel:+19708183052"><i class="fas fa-phone"></i> 970-818-3052</a></li>
-            <li><i class="fas fa-fax"></i> 970-360-7028</li>
+          <ul class="list-unstyled">
+            <li><a class="text-white" href="tel:+19708183052"><i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;970-818-3052</a></li>
+            <li><i class="fas fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;970-360-7028</li>
           </ul>
         </div>
         <div class="col footer-address">
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="https://goo.gl/maps/QaDjyDhbHFkbF4iE6"><i class="fas fa-map text-white"></i></a>&nbsp;&nbsp;&nbsp;<u>Ft. Collins Office:</u></li>
             <li>2580 E Harmony Rd</li>
             <li>Suite 201</li>
@@ -210,7 +201,7 @@
           </ul>
         </div>
         <div class="col footer-address">
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="https://goo.gl/maps/6EdMuLeM7A4ReLib9"><i class="fas fa-map text-white"></i></a>&nbsp;&nbsp;&nbsp;<u>Thornton Office:</u></li>
             <li>12301 Grant St.</li>
             <li>Suite 203</li>
@@ -218,7 +209,7 @@
           </ul>
         </div>
         <div class="col footer-address">
-          <ul>
+          <ul class="list-unstyled">
             <li><u>Mailing Address:</u></li>
             <li>2601 S. Lemay Ave.
             <li>Suite 7-232</li>
@@ -230,6 +221,7 @@
   </div>
   <!-- Vendor scripts -->
   <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/bootstrap.min.js"></script>
 
   <!-- Site scripts -->
   <script src="/js/site.js"></script>

@@ -1,0 +1,107 @@
+$theme-colors: (
+  primary: #003399
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url(../vendor/fontawesome/css/all.css);
+@import url(./fonts/fonts.css);
+
+body {
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 36px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Cantata One',Georgia,"Times New Roman",serif;
+}
+
+a {
+  color: #003399;
+  &:hover {
+    color: #002277;
+  }
+}
+
+#top-header {
+  top: 32px;
+  background: #003399;
+  color: #ffffff;
+}
+
+.navbar-brand {
+  img {
+    width: 80%;
+  }
+}
+
+main {
+}
+
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#front-splash {
+  height: 462px;
+  width: 100%;
+  background: url('../img/horsetooth_hiker_1275_485_smallest.jpg');
+  background-position-x: 50%;
+  background-position-y: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#slogan-hero {
+  margin: 30px auto;
+  padding: 30px 120px;
+  width: 60%;
+  background: hsla(0, 0%, 25%, 0.5);
+  h1 {
+    font-size: 400%;
+    font-weight: 200;
+  }
+}
+
+.welcome-text {
+  margin: 0 115px;
+}
+
+#how-we-differ {
+  background: #444444;
+  color: #ffffff;
+  padding-left: 155px;
+  padding-right: 155px;
+}
+
+#how-we-differ {
+  h1 {
+    text-align: center;
+  }
+}
+
+#lines-of-business {
+  background: #d8d8d8;
+  padding: 0;
+  .col-sm {
+    width: 100%;
+  }
+}
+
+.service-img {
+  img {
+    width: 100%;
+  }
+}
+
+footer {
+  background: #222222;
+  color: #ffffff;
+  .footer-address ul li {
+    line-height: 24px;
+  }
+}

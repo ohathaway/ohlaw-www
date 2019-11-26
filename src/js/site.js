@@ -1,4 +1,4 @@
-var posts_endpoint = 'https://ohlawcolorado.com/wp-json/wp/v2/posts?_embed';
+var posts_endpoint = 'https://ohlawcolorado.com/wp-json/wp/v2/posts?_embed&per_page=100';
 
 
 function get_posts() {
@@ -11,18 +11,16 @@ function get_posts() {
 function bind_default_events() {
 
   function show_service_description(service_name_class, index, array ) {
-    $('.learn-more.'+service_name_class).click(function(event){
-      event.preventDefault();
-      $('.service-description.'+service_name_class).removeClass('d-none');
-      $('.show-less.'+service_name_class).removeClass('d-none');
-      $('.learn-more.'+service_name_class).addClass('d-none');
-    });
+    var toggle = $('.learn-more.'+service_name_class);
 
-    $('.show-less.'+service_name_class).click(function(event){
-      event.preventDefault();
-      $('.service-description.'+service_name_class).addClass('d-none');
-      $('.show-less.'+service_name_class).addClass('d-none');
-      $('.learn-more.'+service_name_class).removeClass('d-none');
+    toggle.click(function(event){
+      toggle.fadeOut(1300, function(){
+        toggle.text(function(index, origText){
+          return (origText == 'Learn more') ? 'Show less' : 'Learn more';
+        });
+        toggle.removeClass('ui-active');
+        toggle.fadeIn(1300);
+      });
     });
   }
 
@@ -37,4 +35,5 @@ function bind_default_events() {
 
 $(document).ready(function() {
   bind_default_events();
+  get_posts();
 });
