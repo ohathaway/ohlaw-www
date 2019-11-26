@@ -16,8 +16,9 @@ function get_posts() {
     console.log("WP Posts: ", data);
     $('#blog-posts .posts').addClass('p-5');
     $.each(data, function(key, val) {
+      let post_date = new Date(val.date);
       let post_html = "<h2>"+val.title.rendered+"</h2>"+
-                      "<p class='subtitle'>"+val.date+"</p>"+
+                      "<p class='subtitle'>posted: "+post_date.toDateString()+"</p>"+
                       "<p class='excerpt'>"+linkify(val.excerpt.rendered)+"</p>"+
                       "<a class='read-post' href='#'>read more</a>"+
                       "<hr>"
