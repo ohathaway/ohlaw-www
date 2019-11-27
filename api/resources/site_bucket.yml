@@ -1,0 +1,21 @@
+Type: AWS::S3::Bucket
+Properties:
+  AccessControl: PublicRead
+  BucketName: ohlaw-www-${self:provider.stage}
+  MetricsConfigurations:
+    - Id: EntireBucket
+  WebsiteConfiguration:
+    IndexDocument: index.html
+    ErrorDocument: error.html
+#    RoutingRules:
+#    - RoutingRuleCondition:
+#        HttpErrorCodeReturnedEquals: '404'
+#        KeyPrefixEquals: out1/
+DeletionPolicy: Retain
+#Outputs:
+#  WebsiteURL:
+#    Value: !GetAtt [siteBucket, WebsiteURL]
+#    Description: URL for website hosted on S3
+#  S3BucketSecureURL:
+#    Value: !Join ['', ['https://', !GetAtt [siteBucket, DomainName]]]
+#    Description: Name of S3 bucket to hold website content

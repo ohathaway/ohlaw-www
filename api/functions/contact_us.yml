@@ -1,0 +1,4 @@
+handler: api/functions/contact_us/index.handler
+description: processes contact form submissions
+environment:
+  dbTable: !Ref contact_submissions_table

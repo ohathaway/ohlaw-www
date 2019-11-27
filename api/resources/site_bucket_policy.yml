@@ -1,0 +1,7 @@
+Type: AWS::S3::BucketPolicy
+Properties:
+  Bucket: ${self:resources.site_bucket}
+  AccessControl: PublicRead
+  WebsiteConfiguration:
+    IndexDocument: index.min.html
+  #PolicyDocument: ${file(api/resources/site_bucket_policy_document_${self:provider.stage}.json)}

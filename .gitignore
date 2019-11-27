@@ -1,2 +1,6 @@
+# package directories
 node_modules
-.DS_Store
+jspm_packages
+
+# Serverless directories
+.serverless

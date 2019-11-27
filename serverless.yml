@@ -1,0 +1,22 @@
+service: ohlaw-www
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-west-2
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+#functions:
+#  contact_us: ${file(api/functions/contact_us.yml)}
+
+resources:
+  Resources:
+    SiteBucket: ${file(api/resources/site_bucket.yml)}
+    #site_bucket_policy: ${file(api/resources/site_bucket_policy.yml)}
+    #log_bucket: ${file(api/resources/log_bucket.yml)}

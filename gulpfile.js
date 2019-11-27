@@ -1,3 +1,4 @@
+var fs          = require('fs');
 var gulp        = require('gulp');
 var vinyl       = require('vinyl');
 var sass        = require('gulp-sass');
@@ -7,7 +8,9 @@ var rename      = require('gulp-rename');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
 var googleFonts = require('gulp-google-webfonts');
+var awspublish  = require('gulp-awspublish')
 var browserSync = require('browser-sync').create();
+var yaml        = require('yaml');
 var pkg         = require('./package.json');
 
 // Set the banner content
@@ -154,6 +157,30 @@ function watch() {
   gulp.watch('./src/*.html', browserSync.reload);
 };
 
+
+// Publish to AWS S3
+function publish(cb) {
+  var serverless_config = yaml.parse(fs.readFileSync('./serverless.yml', 'utf8'));
+  var bucket_config = yaml.parse(fs.readFileSync('./api/resources/site_bucket.yml', 'utf8'));
+  var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, serverless_config.provider.stage);
+  var publish_options = {
+    region: process.env.AWS_REGION,
+    params: {
+      Bucket: bucket_name
+    }
+  }
+  console.log(publish_options);
+
+  var publisher = awspublish.create(publish_options);
+  return gulp.src('./src/**')
+          .pipe(awspublish.gzip())
+          .pipe(publisher.publish())
+          .pipe(publisher.cache())
+          .pipe(awspublish.reporter())
+  ;
+  //cb();
+}
+
 // Default task
 var defaultTask = function() {
   gulp.parallel('styles', 'js_minify', 'vendor');
@@ -174,5 +201,6 @@ exports.styles      = gulp.parallel(css_compile, css_minify);
 
 exports.js_minify = js_minify;
 
-exports.watch = watch;
-exports.dev   = gulp.series(vendors, css_compile, watch);
+exports.watch   = watch;
+exports.dev     = gulp.series(vendors, css_compile, watch);
+exports.publish = publish;
