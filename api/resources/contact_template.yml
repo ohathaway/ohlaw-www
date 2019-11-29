@@ -3,5 +3,5 @@ Properties:
   Template:
     TemplateName: OhlawContactTemplate
     SubjectPart: 'OHLaw Contact Form Submission'
-    TextPart: 'This is the text part of the template'
+    TextPart: ${file(api/resources/contact_template.txt)}
     HtmlPart: ${file(api/resources/contact_template.html)}
