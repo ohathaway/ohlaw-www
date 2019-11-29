@@ -1,0 +1,9 @@
+Contact Request
+
+{{contact_name}} sent a contact request.
+
+email: {{contact_email}}
+phone: {{contact_phone}}
+
+Issue:
+{{contact_issue}}

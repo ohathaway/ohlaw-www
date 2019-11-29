@@ -51,6 +51,27 @@ function bind_default_events() {
       ];
 
   service_name_classes.forEach(show_service_description);
+
+  function contact_form_submitter() {
+    $('.cta-sidebar form button.submit').click(function(event){
+      var contact_form = document.getElementsByTagName('form');
+
+      var form_data = {
+        "contact_name": $('input#contact-name').val(),
+        "contact_email": $('input#contact-email').val(),
+        "contact_phone": $('input#contact-tel').val(),
+        "contact_issue": $('textarea#contact-issue').text()
+      }
+        console.log(JSON.stringify(form_data));
+
+      $.post('https://az9hgmyibk.execute-api.us-west-2.amazonaws.com/dev/contacts', form_data, function(result){
+        console.log("Post result: ", result);
+      });
+      //console.log("Form validity: ", $('#contact-name').checkValidity());
+    });
+  }
+
+  contact_form_submitter();
 };
 
 $(document).ready(function() {

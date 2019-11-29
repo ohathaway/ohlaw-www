@@ -1,0 +1,12 @@
+{
+  "name": "contact_us",
+  "version": "1.0.0",
+  "description": "processes contact form submissions for OHLaw",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Owen Hathaway",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.580.0"
+  }
+}

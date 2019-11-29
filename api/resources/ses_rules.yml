@@ -1,0 +1,16 @@
+Type: AWS::SES::ReceiptRule
+Properties:
+  Rule:
+    Actions:
+      - S3Action:
+          BucketName: ${env:AWS_S3_BUCKET}-${self:provider.stage}
+          #KmsKeyArn: arn:aws:kms:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:/key/${env:AWS_KMS_KEY}
+          ObjectKeyPrefix: email-in
+      - LambdaAction:
+          FunctionArn: arn:aws:lambda:${self:provider.region}:${env:AWS_ACCOUNT_ID}:function:${self:service}-${self:provider.stage}-email2twilio
+          InvocationType: Event
+    Enabled: true
+    Name: putMessageToS3
+    #TlsPolicy: true
+  RuleSetName:
+    Ref: sesRuleSet

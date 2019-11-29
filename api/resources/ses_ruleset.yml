@@ -1,0 +1,3 @@
+Type: AWS::SES::ReceiptRuleSet
+Properties:
+  RuleSetName: fax4med-ruleset

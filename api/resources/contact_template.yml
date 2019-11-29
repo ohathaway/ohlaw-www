@@ -1,0 +1,7 @@
+Type: AWS::SES::Template
+Properties:
+  Template:
+    TemplateName: OhlawContactTemplate
+    SubjectPart: 'OHLaw Contact Form Submission'
+    TextPart: 'This is the text part of the template'
+    HtmlPart: ${file(api/resources/contact_template.html)}

@@ -4,6 +4,8 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: us-west-2
+  logs:
+    restApi: true
 #package:
 #  include:
 #    - include-me.js
@@ -12,11 +14,20 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-#functions:
-#  contact_us: ${file(api/functions/contact_us.yml)}
+functions:
+  contact_us: ${file(api/functions/contact_us.yml)}
 
 resources:
   Resources:
+    # Web site home bucket
     SiteBucket: ${file(api/resources/site_bucket.yml)}
     #site_bucket_policy: ${file(api/resources/site_bucket_policy.yml)}
     #log_bucket: ${file(api/resources/log_bucket.yml)}
+
+    # Email service configuration
+    contactTemplate: ${file(api/resources/contact_template.yml)}
+    #sesRuleSet: ${file(api/resources/ses_ruleset.yml)}
+    #sesRules: ${file(api/resources/ses_rules.yml)}
+
+    # Permissions
+    lambdaPermissionToSes: ${file(api/permissions/lambda_permission_to_ses.yml)}

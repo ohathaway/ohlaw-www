@@ -1,0 +1,16 @@
+Type: AWS::IAM::Policy
+Properties:
+  PolicyName: "lambda_permission_to_ses"
+  PolicyDocument:
+    Version: '2012-10-17'
+    Statement:
+    - Sid: ServerlessInline1
+      Effect: Allow
+      Action:
+      - ses:SendEmail
+      - ses:SendTemplatedEmail
+      - ses:SendRawEmail
+      Resource: "*"
+  Roles:
+    -
+      ohlaw-www-${self:provider.stage}-${self:provider.region}-lambdaRole
