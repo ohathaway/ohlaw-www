@@ -23,6 +23,11 @@ resources:
     SiteBucket: ${file(api/resources/site_bucket.yml)}
     #site_bucket_policy: ${file(api/resources/site_bucket_policy.yml)}
     #log_bucket: ${file(api/resources/log_bucket.yml)}
+    # CDN Distribution
+    cdnDnsRecord: ${file(api/resources/dns_rr.yml)}
+    #cdnCertificate: ${file(api/resources/cdn_certificate.yml)}
+    cdnIdentityConfig: ${file(api/resources/cloudfront_identity.yml)}
+    cdnDistribution: ${file(api/resources/cloudfront_distribution.yml)}
 
     # Email service configuration
     contactTemplate: ${file(api/resources/contact_template.yml)}

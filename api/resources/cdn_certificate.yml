@@ -1,0 +1,4 @@
+Type: AWS::CertificateManager::Certificate
+Properties:
+  DomainName: '*.ohlawcolorado.com'
+  ValidationMethod: DNS

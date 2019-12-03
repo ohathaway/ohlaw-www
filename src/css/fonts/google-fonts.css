@@ -1,13 +1,4 @@
 @font-face {
-	font-family: 'Cantata One';
-	font-style: normal;
-	font-weight: 400;
-	font-display: auto;
-	src: local('Cantata One'), local('CantataOne-Regular'), url(Cantata_One-normal-400.woff) format('woff');
-	unicode-range: U+0-10FFFF;
-}
-
-@font-face {
 	font-family: 'Lato';
 	font-style: italic;
 	font-weight: 400;
@@ -22,6 +13,24 @@
 	font-weight: 400;
 	font-display: auto;
 	src: local('Lato Regular'), local('Lato-Regular'), url(Lato-normal-400.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'undefined';
+	font-style: undefined;
+	font-weight: undefined;
+	font-display: auto;
+	src: local('undefined'), local('undefined'), url(--.woff) format('woff');
+	unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+	font-family: 'Quattrocento';
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+	src: local('Quattrocento Bold'), local('Quattrocento-Bold'), url(Quattrocento-normal-700.woff) format('woff');
 	unicode-range: U+0-10FFFF;
 }
 

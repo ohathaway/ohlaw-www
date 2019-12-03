@@ -86,7 +86,7 @@ function line_icons() {
 // Google Fonts
 function google_fonts() {
   return gulp.src('./src/css/google-fonts.list')
-          .pipe(googleFonts({ cssFilename: "google-fonts.css" }))
+          .pipe(googleFonts({ cssFilename: "google-fonts.css", host: 'fonts.googleapis.com' }))
           .pipe(gulp.dest('./src/css/fonts'))
           ;
 }
@@ -192,8 +192,10 @@ exports.devicons     = devicons;
 exports.fontawesome  = gulp.parallel(fontawesome_css, fontawesome_fonts);
 exports.jquery       = jquery;
 exports.line_icons   = line_icons;
-exports.google_fonts = google_fonts;
-exports.vendors      = gulp.parallel(devicons,jquery,line_icons,google_fonts);
+// Something broke this plugin
+// exports.google_fonts = google_fonts;
+//exports.vendors      = gulp.parallel(devicons,jquery,line_icons,google_fonts);
+exports.vendors      = gulp.parallel(devicons,jquery,line_icons);
 
 exports.css_compile = css_compile;
 exports.css_minify  = css_minify;

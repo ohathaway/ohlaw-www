@@ -26,12 +26,13 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "aws-sdk": "^2.580.0",
+    "aws-sdk": "^2.582.0",
     "bootstrap": "4.3.1",
     "devicons": "^1.8.0",
     "jquery": "3.4.1",
     "npm": "^6.13.1",
     "popper.js": "1.16.0",
+    "serverless": "^1.58.0",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {
@@ -40,9 +41,9 @@
     "gulp": "^4.0.2",
     "gulp-awspublish": "^4.0.1",
     "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "2.6.1",
+    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "2.1.3",
-    "gulp-google-webfonts": "2.1.0",
+    "gulp-google-webfonts": "^2.1.0",
     "gulp-header": "^2.0.9",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",

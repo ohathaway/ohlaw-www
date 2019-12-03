@@ -31,6 +31,13 @@ function get_posts() {
 
 function bind_default_events() {
 
+  // Most of these are iterated on this list
+  let service_name_classes = ['small-business',
+                              'nonprofit',
+                              'estate-planning',
+                              'bankruptcy'
+      ];
+
   function show_service_description(service_name_class, index, array ) {
     var toggle = $('.learn-more.'+service_name_class);
 
@@ -44,25 +51,21 @@ function bind_default_events() {
     });
   }
 
-  let service_name_classes = ['small-business',
-                              'nonprofit',
-                              'estate-planning',
-                              'bankruptcy'
-      ];
 
-  service_name_classes.forEach(show_service_description);
+  function contact_form_submitter(service) {
+    let selector = '.row.service-description.'+service;
+    $(selector+' .cta-sidebar form button.submit').click(function(event){
 
-  function contact_form_submitter() {
-    $('.cta-sidebar form button.submit').click(function(event){
-      var contact_form = document.getElementsByTagName('form');
 
-      var form_data = {
-        "contact_name": $('input#contact-name').val(),
-        "contact_email": $('input#contact-email').val(),
-        "contact_phone": $('input#contact-tel').val(),
-        "contact_issue": $('textarea#contact-issue').text()
+      let form_data = {
+        "source_form": $(selector+' input[name="service-form-name"]').val(),
+        "contact_name": $(selector+' input[name="contact-name]"').val(),
+        "contact_email": $(selector+' input[name="contact-email"]').val(),
+        "contact_phone": $(selector+' input[name="contact-tel"]').val(),
+        "contact_issue": $(selector+' textarea[name="contact-issue"]').text()
       }
-        console.log(JSON.stringify(form_data));
+
+      console.log(JSON.stringify(form_data));
 
       $.post('https://az9hgmyibk.execute-api.us-west-2.amazonaws.com/dev/contacts', form_data, function(result){
         console.log("Post result: ", result);
@@ -71,10 +74,13 @@ function bind_default_events() {
     });
   }
 
-  contact_form_submitter();
+  service_name_classes.forEach(function(service){
+    show_service_description(service);
+    contact_form_submitter(service);
+  });
 };
 
 $(document).ready(function() {
   bind_default_events();
-  get_posts();
+  //get_posts();
 });
