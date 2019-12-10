@@ -93,7 +93,8 @@ function google_fonts() {
 
 // Copy third party libraries from /node_modules into /vendor
 function vendors(cb) {
-   gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
+   //gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
+   gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons');
    cb();
 };
 

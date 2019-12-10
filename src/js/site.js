@@ -13,7 +13,7 @@ function get_posts() {
   $.getJSON(posts_endpoint, function(data) {
     var posts = [];
 
-    console.log("WP Posts: ", data);
+    //console.log("WP Posts: ", data);
     $('#blog-posts .posts').addClass('p-5');
     $.each(data, function(key, val) {
       let post_date = new Date(val.date);
@@ -31,7 +31,7 @@ function get_posts() {
 
 function bind_default_events() {
 
-  // Most of these are iterated on this list
+  // Most of these on this list are iterated in here somewheres
   let service_name_classes = ['small-business',
                               'nonprofit',
                               'estate-planning',
@@ -46,6 +46,10 @@ function bind_default_events() {
         toggle.text(function(index, origText){
           return (origText == 'Learn more') ? 'Show less' : 'Learn more';
         });
+        let target = toggle.attr('data-target').replace(/\./g, " ");
+        //let target = document.getElementsByClassName(toggle.attr('data-target').replace(/\./, ""));
+        console.log(target);
+        //target[0].scrollIntoView({behavior: 'smooth'});
         toggle.fadeIn(1300);
       });
     });
@@ -74,6 +78,9 @@ function bind_default_events() {
     });
   }
 
+  function smooth_scroll(target) {
+
+  }
   service_name_classes.forEach(function(service){
     show_service_description(service);
     contact_form_submitter(service);

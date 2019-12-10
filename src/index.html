@@ -41,6 +41,7 @@
 </head>
 <body>
   <div id="page-container">
+    <!--
     <div id="top-header">
       <div class="container-fluid clearfix row">
         <div class="col">
@@ -55,22 +56,45 @@
         </div>
       </div>
     </div>
+    -->
     <header id="main-header">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/"><img src="/img/ohlaw-logo-trans-570-2.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main_header" aria-controls="navbar-main_header" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end pr-5" id="navbar-main_header">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#lines-of-business">Services</a>
-            <a class="nav-item nav-link" href="#blog-posts">Blog</a>
-            <a class="nav-item nav-link" href="#">Schedule</a>
-            <a class="nav-item nav-link" href="#">Contact</a>
-          </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="https://www-dev.ohlawcolorado.com/img/ohlaw-logo-trans-570-2.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <!--<ul class="navbar-nav mr-auto mt-2 mt-lg-0">-->
+    <ul class="navbar-nav mr-auto mt-2">
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbar-dropdown" aria-haspopup="true" aria-expanded="false" href="#">Services <span class="sr-only">(current)</span></a>
+        <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+          <a class="dropdown-item" href="#service-small-business">Small Business</a>
+          <a class="dropdown-item" href="#service-nonprofit">NonProfits</a>
+          <a class="dropdown-item" href="#service-estate-planning">Estate Planning</a>
+          <a class="dropdown-item" href="#service-bankruptcy">Bankruptcy</a>
         </div>
-      </nav>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#generic-contact-form">Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tel:+19708183052">970-818-3052</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="mailto:contact@ohlawcolorado.com">contact@ohlawcolorado.com</a>
+      </li>
+			<!-- Display isn't right. Disabled since the content isn't up to date anyway
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.facebook.com/ohlawCO/"><i class="fab fa-facebook-f"></i></a>
+        <a class="nav-link" href="https://www.linkedin.com/company/22321647/"><i class="fab fa-linkedin-in"></i></a>
+        <a class="nav-link" href="https://twitter.com/ohlawCO/"><i class="fab fa-twitter"></i></a>
+        <a class="nav-link" href="https://ohlawcolorado.com/feeds/"><i class="fas fa-rss"></i></a>
+      </li>
+			-->
+    </ul>
+  </div>
+</nav>
     </header>
     <main>
       <section class="container-fluid" id="front-splash">
@@ -90,7 +114,7 @@
         <p>We offer people a different way to buy legal services. Almost everything we do for our clients, we offer at a fixed fee. If we can't offer you a fixed price, we will always commit to a budget set by you. We think this transparency and affordability makes our services available to people who may not think they can actually hire a lawyer.</p>
       </section>
       <section class="container-fluid" id="lines-of-business">
-        <div class="row no-gutters">
+        <div class="row no-gutters" id="service-small-business">
           <div class="col-sm m-0 service-img">
             <img src="/img/business1_1024_smallest.jpg">
           </div>
@@ -103,7 +127,7 @@
           </div>
         </div>
         <div class="row service-description small-business bg-white collapse">
-          <div class="col-3 bg-primary cta-sidebar p-5">
+          <div class="col-3 bg-primary cta-sidebar p-5" id="cta-sidebar-small-business">
             <h3 class="text-white text-center pb-4">Contact us now<br> for a<br> Free Consultation</h3>
             <form action="#">
               <input type="hidden" name="service-form-name" value="small-business">
@@ -145,7 +169,7 @@
             <p>Vendor contracts. Ugh. Lots of words in the way of getting your stuff. Don’t ignore them. They’ll come back to haunt you and cost you money. Our services are a lot less expensive.</p>
           </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters" id="service-nonprofit">
           <div class="col-sm m-0 service-text service-text-left">
             <div class="p-5">
               <h4>Nonprofits</h4>
@@ -164,7 +188,7 @@
             <p>At its core, a nonprofit does face many of the same corporate issues as any other business. We certainly know that world. We also have helped folks wrestle with the intricacies of giving life to their charitable gift to the world. Is starting a nonprofit really the right thing to do? What about giving to an existing foundation or even creating your own? Have you thought about B corporations? Many states offer these as an option in between nonprofits and traditional business organizations. If you do go the nonprofit route, is a 501(c)(3) in your future? If so, how are you going to avoid UBIT while creating a sustaining revenue to support the mission?</p>
             <p>As part of our commitment to giving back, we include a number of nonprofit-specific services in our business formation bundles for nonprofits at the same cost as our standard business bundles. If you’re considering making it your life’s work to give back to your community, let us help you do it in a way that honors your commitment while putting a solid structure in place that leads to mission accomplished.</p>
           </div>
-          <div class="col-3 bg-primary cta-sidebar p-5">
+          <div class="col-3 bg-primary cta-sidebar p-5" id="cta-sidebar-nonprofit">
             <h3 class="text-white text-center pb-4">Contact us now<br> for a<br> Free Consultation</h3>
             <form action="#">
               <input type="hidden" name="service-form-name" value="nonprofit">
@@ -193,7 +217,7 @@
             </form>
           </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters" id="service-estate-planning">
           <div class="col-sm service-img">
             <img src="/img/estatenotebook_1024_smallest.jpg">
           </div>
@@ -206,7 +230,7 @@
           </div>
         </div>
         <div class="row service-description estate-planning bg-white collapse">
-          <div class="col-3 bg-primary cta-sidebar p-5">
+          <div class="col-3 bg-primary cta-sidebar p-5" id="cta-sidebar-estate-planning">
             <h3 class="text-white text-center pb-4">Contact us now<br> for a<br> Free Consultation</h3>
             <form action="#">
               <input type="hidden" name="service-form-name" value="estate-planning">
@@ -241,7 +265,7 @@
             <p>If you own a business, we find it extremely helpful to build your estate plan with an attorney who also has the knowledge and experience in business law to make sure your business interests align with your estate plan. Your business is a big part of your legacy, and failure to plan well can leave that legacy to the wolves when you are gone. Good estate planning for a business owner will necessarily include good succession planning for the business. Check out our easy options to get the process started.</p>
           </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters" id="service-bankruptcy">
           <div class="col-sm service-text service-text-left">
             <div class="p-5">
               <h4>Bankruptcy</h4>
@@ -257,7 +281,7 @@
           <div class="col-9 p-5">
             <h2>Bankruptcy Header</h4>
           </div>
-          <div class="col-3 bg-primary cta-sidebar p-5">
+          <div class="col-3 bg-primary cta-sidebar p-5" id="cta-sidebar-bankruptcy">
             <h3 class="text-white text-center pb-4">Contact us now<br> for a<br> Free Consultation</h3>
             <form action="#">
               <input type="hidden" name="service-form-name" value="bankrupcty">
@@ -290,6 +314,40 @@
       <section class="container-fluid p-0" id="blog-posts">
         <div class="row">
           <div class="col posts">
+          </div>
+        </div>
+      </section>
+      <section class="container-fluid" id="generic-contact-form">
+        <div class="row">
+          <div class="col-0 mx-auto contact-form text-light">
+						<h2 class="text-center">Get in touch, we'd love to hear from you</h2>
+            <p class="mt-5">
+              <form action="#">
+                <input type="hidden" name="service-form-name" value="Generic Contact">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" name="contact-name" class="form-control" placeholder="Your Name" aria-label="Full Name" aria-describedby="basic-addon1" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+                  </div>
+                  <input type="email" name="contact-email" class="form-control" placeholder="Your email address" aria-label="Email Address" aria-describedby="contact-email" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
+                  </div>
+                  <input type="tel" name="contact-tel" class="form-control" placeholder="Your phone number" aria-label="Phone Number" aria-describedby="contact-phone" required>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="contact-issue" rows="6" required">What can we help you with?</textarea>
+                </div>
+                <button class="btn btn-secondary submit">Submit</button>
+              </form>
+            </p>
           </div>
         </div>
       </section>
