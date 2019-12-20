@@ -9630,6 +9630,10 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Lato,Helvetica,Arial,sans-serif;
   font-size: 18px;
@@ -9707,10 +9711,11 @@ section {
 #lines-of-business {
   background: #d8d8d8;
   padding: 0;
-}
-
-#lines-of-business .col-sm {
-  width: 100%;
+  /*
+  .col-sm {
+    width: 100%;
+  }
+  */
 }
 
 .service-img img {
@@ -9728,4 +9733,26 @@ footer {
 
 footer .footer-address ul li {
   line-height: 24px;
+}
+
+@media (min-width: 767.98px) {
+  .service-img {
+    display: none;
+  }
+  .service-text {
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+  }
+  #service-small-business .service-text {
+    background: url("../img/business1_1024_o20.png");
+  }
+  #service-nonprofit .service-text {
+    background: url("../img/dotorgtablet_1024_o20.png");
+  }
+  #service-estate-planning .service-text {
+    background: url("../img/estatenotebook_1024_o20.png");
+  }
+  #service-bankruptcy .service-text {
+    background: url("../img/helpinghand_1024_o20.png");
+  }
 }

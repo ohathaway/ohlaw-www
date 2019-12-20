@@ -25,14 +25,14 @@
     "url": "https://ohlaw@bitbucket.org/ohlaw/ohlaw-www.git"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2",
-    "aws-sdk": "^2.585.0",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "aws-sdk": "^2.594.0",
     "bootstrap": "^4.4.1",
     "devicons": "^1.8.0",
     "jquery": "^3.4.1",
-    "npm": "^6.13.2",
+    "npm": "^6.13.4",
     "popper.js": "^1.16.0",
-    "serverless": "^1.59.2",
+    "serverless": "^1.60.1",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {
@@ -45,6 +45,7 @@
     "gulp-cssnano": "^2.1.3",
     "gulp-google-webfonts": "^2.1.0",
     "gulp-header": "^2.0.9",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",

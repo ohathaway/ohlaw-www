@@ -46,7 +46,7 @@ function send_ses_message(event) {
 
 
 exports.handler = (event, context, callback) => {
-  //console.log('Received event: ', event);
+  console.log('Received event: ', event);
 
   var message_result = send_ses_message(event);
   console.log("message_result: ", message_result);

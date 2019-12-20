@@ -1,7 +1,7 @@
-var posts_endpoint = 'https://ohlawcolorado.com/wp-json/wp/v2/posts?_embed&per_page=100';
 
 
 function get_posts() {
+  var posts_endpoint = 'https://ohlawcolorado.com/wp-json/wp/v2/posts?_embed&per_page=100';
   function linkify(text) {
     var url_regex = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     return text.replace(url_regex, function(url){
@@ -48,7 +48,7 @@ function bind_default_events() {
         });
         let target = toggle.attr('data-target').replace(/\./g, " ");
         //let target = document.getElementsByClassName(toggle.attr('data-target').replace(/\./, ""));
-        console.log(target);
+        //console.log(target);
         //target[0].scrollIntoView({behavior: 'smooth'});
         toggle.fadeIn(1300);
       });
@@ -59,23 +59,26 @@ function bind_default_events() {
   function contact_form_submitter(service) {
     let selector = '.row.service-description.'+service;
     $(selector+' .cta-sidebar form button.submit').click(function(event){
-
-
-      let form_data = {
-        "source_form": $(selector+' input[name="service-form-name"]').val(),
-        "contact_name": $(selector+' input[name="contact-name]"').val(),
-        "contact_email": $(selector+' input[name="contact-email"]').val(),
-        "contact_phone": $(selector+' input[name="contact-tel"]').val(),
-        "contact_issue": $(selector+' textarea[name="contact-issue"]').text()
-      }
-
-      console.log(JSON.stringify(form_data));
-
-      $.post('https://az9hgmyibk.execute-api.us-west-2.amazonaws.com/dev/contacts', form_data, function(result){
-        console.log("Post result: ", result);
-      });
-      //console.log("Form validity: ", $('#contact-name').checkValidity());
+      alert("clicked a submit");
+      submit_contact_form(selector);
     });
+  }
+
+  function submit_contact_form(selector) {
+    let form_data = {
+      "source_form": $(selector+' input[name="service-form-name"]').val(),
+      "contact_name": $(selector+' input[name="contact-name]"').val(),
+      "contact_email": $(selector+' input[name="contact-email"]').val(),
+      "contact_phone": $(selector+' input[name="contact-tel"]').val(),
+      "contact_issue": $(selector+' textarea[name="contact-issue"]').text()
+    }
+
+    console.log(JSON.stringify(form_data));
+
+    $.post('https://az9hgmyibk.execute-api.us-west-2.amazonaws.com/dev/contacts', form_data, function(result){
+      console.log("Post result: ", result);
+    });
+    //console.log("Form validity: ", $('#contact-name').checkValidity());
   }
 
   function smooth_scroll(target) {
@@ -86,6 +89,7 @@ function bind_default_events() {
     contact_form_submitter(service);
   });
 };
+
 
 $(document).ready(function() {
   bind_default_events();

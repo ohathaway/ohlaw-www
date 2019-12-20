@@ -12,6 +12,7 @@ var awspublish  = require('gulp-awspublish')
 var browserSync = require('browser-sync').create();
 var yaml        = require('yaml');
 var pkg         = require('./package.json');
+var htmlmin     = require('gulp-htmlmin');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -141,9 +142,6 @@ function js_minify() {
     .pipe(browserSync.stream());
 };
 
-function minifyHtml() {
-};
-
 
 // Configure the browserSync task
 function watch() {
@@ -158,6 +156,19 @@ function watch() {
   gulp.watch('./src/*.html', browserSync.reload);
 };
 
+function html_minify(cb) {
+  var html_min_options = {
+    removeComments: true,
+    removeRedundantAttributes: true,
+    collapseWhitespace: true,
+    collapseInlineTagWhitespace: true
+  };
+
+  return gulp.src('src/*.html')
+    .pipe(htmlmin(html_min_options))
+    .pipe(gulp.dest('dist'));
+  cb();
+}
 
 // Publish to AWS S3
 function publish(cb) {
@@ -187,6 +198,8 @@ var defaultTask = function() {
   gulp.parallel('styles', 'js_minify', 'vendor');
 }
 
+
+
 // Vendor includes
 exports.bootstrap_js = bootstrap_js;
 exports.devicons     = devicons;
@@ -202,7 +215,8 @@ exports.css_compile = css_compile;
 exports.css_minify  = css_minify;
 exports.styles      = gulp.parallel(css_compile, css_minify);
 
-exports.js_minify = js_minify;
+exports.js_minify   = js_minify;
+exports.html_minify = html_minify;
 
 exports.watch   = watch;
 exports.dev     = gulp.series(vendors, css_compile, watch);
