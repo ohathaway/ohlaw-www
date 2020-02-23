@@ -7,6 +7,7 @@ var cleanCSS    = require('gulp-clean-css');
 var rename      = require('gulp-rename');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
+var terser      = require('gulp-terser');
 var googleFonts = require('gulp-google-webfonts');
 var awspublish  = require('gulp-awspublish')
 var browserSync = require('browser-sync').create();
@@ -134,7 +135,7 @@ function js_minify() {
       './src/js/*.js',
       '!./src/js/*.min.js'
     ])
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(rename({
       suffix: '.min'
     }))
@@ -150,9 +151,9 @@ function watch() {
       baseDir: "./src/"
     }
   });
-  gulp.watch('/src/scss/**/*.scss', styles);
-  gulp.watch('/src/css/*.css', styles);
-  gulp.watch('/src/js/*.js', js_minify);
+  gulp.watch('./src/scss/**/*.scss', css_minify);
+  gulp.watch('./src/css/*.css', styles);
+  gulp.watch('./src/js/*.js', js_minify);
   gulp.watch('./src/*.html', browserSync.reload);
 };
 

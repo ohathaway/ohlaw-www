@@ -9680,14 +9680,14 @@ section {
   background-size: cover;
 }
 
-#slogan-hero {
+#front-splash #slogan-hero {
   margin: 30px auto;
   padding: 30px 120px;
   width: 60%;
   background: rgba(64, 64, 64, 0.5);
 }
 
-#slogan-hero h1 {
+#front-splash #slogan-hero h1 {
   font-size: 400%;
   font-weight: 200;
   font-family: Quatrocento;
@@ -9735,13 +9735,20 @@ footer .footer-address ul li {
   line-height: 24px;
 }
 
-@media (min-width: 767.98px) {
+@media (max-width: 1025px) {
+  #front-splash {
+    height: 250px;
+  }
+  #front-splash #slogan-hero {
+    font-size: 65%;
+    padding: 15px 30px;
+  }
   .service-img {
     display: none;
   }
   .service-text {
     border-top: 1px solid #333333;
-    border-bottom: 1px solid #333333;
+    border-bottod: 1px solid #333333;
   }
   #service-small-business .service-text {
     background: url("../img/business1_1024_o20.png");

@@ -30,7 +30,6 @@ function get_posts() {
 };
 
 function bind_default_events() {
-
   // Most of these on this list are iterated in here somewheres
   let service_name_classes = ['small-business',
                               'nonprofit',

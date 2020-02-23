@@ -58,17 +58,16 @@ section {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-#slogan-hero {
-  margin: 30px auto;
-  padding: 30px 120px;
-  width: 60%;
-  background: hsla(0, 0%, 25%, 0.5);
-  h1 {
-    font-size: 400%;
-    font-weight: 200;
-    font-family: Quatrocento;
+  #slogan-hero {
+    margin: 30px auto;
+    padding: 30px 120px;
+    width: 60%;
+    background: hsla(0, 0%, 25%, 0.5);
+    h1 {
+      font-size: 400%;
+      font-weight: 200;
+      font-family: Quatrocento;
+    }
   }
 }
 
@@ -121,14 +120,23 @@ footer {
   }
 }
 
-@media (min-width: 767.98px) {
+@media (max-width: 1025px) {
+  #front-splash {
+    height: 250px;
+
+    #slogan-hero {
+      font-size: 65%;
+      padding: 15px 30px;
+    }
+  }
+
   .service-img {
     display: none;
   }
 
   .service-text {
     border-top: 1px solid #333333;
-    border-bottom: 1px solid #333333;
+    border-bottod: 1px solid #333333;
   }
   #service-small-business .service-text {
     background: url('../img/business1_1024_o20.png') ;
@@ -145,4 +153,8 @@ footer {
   #service-bankruptcy .service-text {
     background: url('../img/helpinghand_1024_o20.png') ;
   }
+}
+
+@media (max-width: 824px) {
+
 }
