@@ -9636,7 +9636,7 @@ html {
 
 body {
   font-family: Lato,Helvetica,Arial,sans-serif;
-  font-size: 16;
+  font-size: 16px;
   font-weight: 300;
   line-height: 36px;
 }
@@ -9734,6 +9734,10 @@ footer .footer-address ul li {
   .navbar-brand {
     width: 300px;
   }
+  #lines-of-business {
+    font-size: 14px;
+    line-height: 32px;
+  }
 }
 
 @media (max-width: 1025px) {
@@ -9762,5 +9766,25 @@ footer .footer-address ul li {
   }
   #lines-of-business #service-bankruptcy .service-text {
     background: url("../img/helpinghand_1024_o20.png");
+  }
+  #how-we-differ {
+    background: #444444;
+    color: #ffffff;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-text {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+  #how-we-differ {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  #how-we-differ h1 {
+    font-size: 32px;
   }
 }
