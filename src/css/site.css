@@ -9776,6 +9776,9 @@ footer .footer-address ul li {
 }
 
 @media (max-width: 768px) {
+  #front-splash {
+    display: none;
+  }
   .welcome-text {
     margin-left: 35px;
     margin-right: 35px;
