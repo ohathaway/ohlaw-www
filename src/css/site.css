@@ -9636,7 +9636,7 @@ html {
 
 body {
   font-family: Lato,Helvetica,Arial,sans-serif;
-  font-size: 18px;
+  font-size: 16;
   font-weight: 300;
   line-height: 36px;
 }
@@ -9659,8 +9659,8 @@ a:hover {
   color: #ffffff;
 }
 
-.navbar-brand img {
-  width: 80%;
+.navbar-brand {
+  width: 400px;
 }
 
 section {
@@ -9711,14 +9711,9 @@ section {
 #lines-of-business {
   background: #d8d8d8;
   padding: 0;
-  /*
-  .col-sm {
-    width: 100%;
-  }
-  */
 }
 
-.service-img img {
+#lines-of-business .service-img img {
   width: 100%;
 }
 
@@ -9735,6 +9730,12 @@ footer .footer-address ul li {
   line-height: 24px;
 }
 
+@media (max-width: 1100px) {
+  .navbar-brand {
+    width: 300px;
+  }
+}
+
 @media (max-width: 1025px) {
   #front-splash {
     height: 250px;
@@ -9743,23 +9744,23 @@ footer .footer-address ul li {
     font-size: 65%;
     padding: 15px 30px;
   }
-  .service-img {
+  #lines-of-business .service-img {
     display: none;
   }
-  .service-text {
+  #lines-of-business .service-text {
     border-top: 1px solid #333333;
     border-bottod: 1px solid #333333;
   }
-  #service-small-business .service-text {
+  #lines-of-business #service-small-business .service-text {
     background: url("../img/business1_1024_o20.png");
   }
-  #service-nonprofit .service-text {
+  #lines-of-business #service-nonprofit .service-text {
     background: url("../img/dotorgtablet_1024_o20.png");
   }
-  #service-estate-planning .service-text {
+  #lines-of-business #service-estate-planning .service-text {
     background: url("../img/estatenotebook_1024_o20.png");
   }
-  #service-bankruptcy .service-text {
+  #lines-of-business #service-bankruptcy .service-text {
     background: url("../img/helpinghand_1024_o20.png");
   }
 }

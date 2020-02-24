@@ -125,7 +125,7 @@ function css_minify() {
 
 // CSS
 function styles(cb) {
-  gulp.series('css_compile', 'css_minify');
+  gulp.series(css_compile, css_minify);
   cb();
 };
 
@@ -145,16 +145,20 @@ function js_minify() {
 
 
 // Configure the browserSync task
+function bsReload(done) {
+  browserSync.reload();
+  done();
+}
 function watch() {
   browserSync.init({
     server: {
       baseDir: "./src/"
     }
   });
-  gulp.watch('./src/scss/**/*.scss', css_minify);
-  gulp.watch('./src/css/*.css', styles);
-  gulp.watch('./src/js/*.js', js_minify);
-  gulp.watch('./src/*.html', browserSync.reload);
+  gulp.watch('./src/scss/**/*.scss', gulp.series(css_compile, bsReload));
+  //gulp.watch('./src/css/*.css', gulp.series(styles, browserSync.reload));
+  gulp.watch('./src/js/*.js', gulp.series(js_minify, bsReload));
+  gulp.watch('./src/*.html', bsReload);
 };
 
 function html_minify(cb) {
