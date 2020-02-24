@@ -94,10 +94,10 @@ function google_fonts() {
 }
 
 // Copy third party libraries from /node_modules into /vendor
-function vendors(cb) {
+function vendors(done) {
    //gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons', 'google_fonts');
    gulp.series('devicons', 'fontawesome', 'jquery', 'line_icons');
-   cb();
+   done();
 };
 
 /*
@@ -124,9 +124,9 @@ function css_minify() {
 };
 
 // CSS
-function styles(cb) {
+function styles(done) {
   gulp.series(css_compile, css_minify);
-  cb();
+  done();
 };
 
 // Minify JavaScript
@@ -145,10 +145,12 @@ function js_minify() {
 
 
 // Configure the browserSync task
+// hack to make browserSync work correctly
 function bsReload(done) {
   browserSync.reload();
   done();
 }
+
 function watch() {
   browserSync.init({
     server: {
@@ -161,7 +163,7 @@ function watch() {
   gulp.watch('./src/*.html', bsReload);
 };
 
-function html_minify(cb) {
+function html_minify(done) {
   var html_min_options = {
     removeComments: true,
     removeRedundantAttributes: true,
@@ -172,11 +174,11 @@ function html_minify(cb) {
   return gulp.src('src/*.html')
     .pipe(htmlmin(html_min_options))
     .pipe(gulp.dest('dist'));
-  cb();
+  done();
 }
 
 // Publish to AWS S3
-function publish(cb) {
+function publish_dev(done) {
   var serverless_config = yaml.parse(fs.readFileSync('./serverless.yml', 'utf8'));
   var bucket_config = yaml.parse(fs.readFileSync('./api/resources/site_bucket.yml', 'utf8'));
   var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, serverless_config.provider.stage);
@@ -223,6 +225,6 @@ exports.styles      = gulp.parallel(css_compile, css_minify);
 exports.js_minify   = js_minify;
 exports.html_minify = html_minify;
 
-exports.watch   = watch;
-exports.dev     = gulp.series(vendors, css_compile, watch);
-exports.publish = publish;
+exports.watch       = watch;
+exports.dev         = gulp.series(vendors, css_compile, watch);
+exports.publish_dev = publish_dev;
