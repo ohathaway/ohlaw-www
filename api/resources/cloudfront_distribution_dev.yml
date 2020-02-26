@@ -1,0 +1,29 @@
+Type: AWS::CloudFront::Distribution
+Properties:
+  DistributionConfig:
+    Aliases:
+      - www-dev.ohlawcolorado.com
+    Enabled: true
+    ViewerCertificate:
+      AcmCertificateArn: arn:aws:acm:us-east-1:109856252379:certificate/6aa99d34-4f8f-4363-84e3-b513e770fd81
+      SslSupportMethod: sni-only
+    DefaultRootObject: index.html
+    DefaultCacheBehavior:
+      AllowedMethods:
+        - GET
+        - HEAD
+      CachedMethods:
+        - GET
+        - HEAD
+      Compress: true
+      DefaultTTL: 300
+      ForwardedValues:
+        QueryString: false
+      TargetOriginId: dev
+      ViewerProtocolPolicy: redirect-to-https
+    Origins:
+      -
+        DomainName: ohlaw-www-${self:provider.stage}.s3-us-west-2.amazonaws.com
+        Id: dev
+        S3OriginConfig:
+          OriginAccessIdentity: ''
