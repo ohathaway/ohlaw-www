@@ -30,6 +30,7 @@
     "bootstrap": "^4.4.1",
     "devicons": "^1.8.0",
     "gulp-terser": "^1.2.0",
+    "gulp-useref": "^4.0.1",
     "jquery": "^3.4.1",
     "npm": "^6.13.7",
     "popper.js": "^1.16.1",
@@ -51,9 +52,27 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "2.6.5",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "serverless-gulp": "^1.0.10",
     "yaml": "^1.7.2"
+  },
+  "scripts": {
+    "css_compile": "gulp css_compile",
+    "bootstrap_js": "gulp bootstrap_js",
+    "devicons": "gulp devicons",
+    "jquery": "gulp jquery",
+    "line_icons": "gulp line_icons",
+    "vendors": "gulp devicons && gulp jquery && gulp line_icons",
+    "css_compile": "gulp css_compile",
+    "css_minify": "gulp css_minify",
+    "js_minify": "gulp js_minify",
+    "html_minify": "gulp html_minify",
+    "watch": "gulp watch",
+    "dev": "gulp vendors && gulp css_compile && gulp watch",
+    "publish": "gulp publish",
+    "copy_img": "gulp copy_img",
+    "copy_vendors": "gulp copy_vendors",
+    "publish_prod": "gulp publish_prod"
   }
 }

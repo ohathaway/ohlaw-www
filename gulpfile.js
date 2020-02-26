@@ -1,19 +1,22 @@
-var fs          = require('fs');
-var gulp        = require('gulp');
-var vinyl       = require('vinyl');
-var sass        = require('gulp-sass');
-var header      = require('gulp-header');
-var cleanCSS    = require('gulp-clean-css');
-var rename      = require('gulp-rename');
-var sourcemaps  = require('gulp-sourcemaps');
-var uglify      = require('gulp-uglify');
-var terser      = require('gulp-terser');
-var googleFonts = require('gulp-google-webfonts');
-var awspublish  = require('gulp-awspublish')
-var browserSync = require('browser-sync').create();
-var yaml        = require('yaml');
-var pkg         = require('./package.json');
-var htmlmin     = require('gulp-htmlmin');
+const fs           = require('fs');
+const gulp         = require('gulp');
+const vinyl        = require('vinyl');
+const sass         = require('gulp-sass');
+const header       = require('gulp-header');
+const cleanCSS     = require('gulp-clean-css');
+const rename       = require('gulp-rename');
+const uglify       = require('gulp-uglify');
+const terser       = require('gulp-terser');
+const googleFonts  = require('gulp-google-webfonts');
+const awspublish   = require('gulp-awspublish')
+const browserSync  = require('browser-sync').create();
+const yaml         = require('yaml');
+const pkg          = require('./package.json');
+const postcss      = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const sourcemaps   = require('gulp-sourcemaps');
+const useref       = require('gulp-useref');
+const htmlmin      = require('gulp-htmlmin');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -115,12 +118,15 @@ function css_compile() {
 // Minify CSS
 function css_minify() {
   return gulp.src('./src/css/*.css')
+    .pipe(sourcemaps.init())
     .pipe(cleanCSS())
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(gulp.dest('./dist/css/'))
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(browserSync.stream());
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist/css/'));
 };
 
 // CSS
@@ -131,16 +137,15 @@ function styles(done) {
 
 // Minify JavaScript
 function js_minify() {
-  return gulp.src([
-      './src/js/*.js',
-      '!./src/js/*.min.js'
-    ])
+  return gulp.src('./src/js/*.js')
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(browserSync.stream());
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist/js/'));
 };
 
 
@@ -172,13 +177,14 @@ function html_minify(done) {
   };
 
   return gulp.src('src/*.html')
+    .pipe(useref())
     .pipe(htmlmin(html_min_options))
     .pipe(gulp.dest('dist'));
   done();
 }
 
 // Publish to AWS S3
-function publish_dev(done) {
+function publish(env, done) {
   var serverless_config = yaml.parse(fs.readFileSync('./serverless.yml', 'utf8'));
   var bucket_config = yaml.parse(fs.readFileSync('./api/resources/site_bucket.yml', 'utf8'));
   var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, serverless_config.provider.stage);
@@ -197,7 +203,24 @@ function publish_dev(done) {
           .pipe(publisher.cache())
           .pipe(awspublish.reporter())
   ;
-  //cb();
+  //done();
+}
+
+// Publish site to production
+function copy_img(done) {
+  return gulp.src('./src/img/**')
+          .pipe(gulp.dest('./dist/img/'))
+  done();
+}
+
+function copy_vendors(done) {
+  return gulp.src('./src/vendor/**/*')
+          .pipe(gulp.dest('./dist/vendor/'));
+  done();
+}
+
+function publish_prod(done) {
+  done();
 }
 
 // Default task
@@ -225,6 +248,10 @@ exports.styles      = gulp.parallel(css_compile, css_minify);
 exports.js_minify   = js_minify;
 exports.html_minify = html_minify;
 
-exports.watch       = watch;
-exports.dev         = gulp.series(vendors, css_compile, watch);
-exports.publish_dev = publish_dev;
+exports.watch   = watch;
+exports.dev     = gulp.series(vendors, css_compile, watch);
+exports.publish = publish;
+
+exports.copy_img     = copy_img;
+exports.copy_vendors = copy_vendors;
+exports.publish_prod = publish_prod;

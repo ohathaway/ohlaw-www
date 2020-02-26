@@ -1,5 +1,3 @@
-
-
 function get_posts() {
   var posts_endpoint = 'https://ohlawcolorado.com/wp-json/wp/v2/posts?_embed&per_page=100';
   function linkify(text) {
@@ -93,4 +91,15 @@ function bind_default_events() {
 $(document).ready(function() {
   bind_default_events();
   //get_posts();
+
+  window.onscroll = function scroll_header() {
+    if (document.body.scrollTop > 53 || document.documentElement.scrollTop > 53) {
+      $('#main-header').attr('style', 'font-size: 12px; line-height: 18px;');
+      /*$('.navbar-brand > img').attr('style', 'width: 300px;');*/
+    } else {
+      $('#main-header').attr('style', 'font-size: 16px; line-height: 36px;');
+      /*$('.navbar-brand > img').attr('style', 'width: 400px;');*/
+    }
+  }
+
 });

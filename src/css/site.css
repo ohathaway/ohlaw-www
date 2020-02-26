@@ -9653,14 +9653,31 @@ a:hover {
   color: #002277;
 }
 
+#main-header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: 0.4s;
+}
+
+#main-header img {
+  transition: 0.4s;
+}
+
+/*
 #top-header {
   top: 32px;
   background: #003399;
   color: #ffffff;
 }
-
+*/
 .navbar-brand {
   width: 400px;
+}
+
+main {
+  position: relative;
+  top: 50px;
 }
 
 section {
@@ -9722,6 +9739,7 @@ section {
 }
 
 footer {
+  position: relative;
   background: #222222;
   color: #ffffff;
 }
@@ -9741,6 +9759,14 @@ footer .footer-address ul li {
 }
 
 @media (max-width: 1025px) {
+  .navbar-brand {
+    width: 225px;
+  }
+  .navbar-toggler-icon {
+    transition: 0.4s;
+    height: 0.8em;
+    width: 0.8em;
+  }
   #front-splash {
     height: 250px;
   }
