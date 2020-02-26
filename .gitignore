@@ -9,6 +9,7 @@ jspm_packages
 
 .envrc
 .awspublish*
+*.swp
 
 # don't track the dist directory as the build scripts should handle this
 dist
