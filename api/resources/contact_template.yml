@@ -1,7 +1,7 @@
 Type: AWS::SES::Template
 Properties:
   Template:
-    TemplateName: OhlawContactTemplate
+    TemplateName: OhlawContactTemplate-${self:provider.stage}
     SubjectPart: 'OHLaw Contact Form Submission'
     TextPart: ${file(api/resources/contact_template.txt)}
     HtmlPart: ${file(api/resources/contact_template.html)}
