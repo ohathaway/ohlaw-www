@@ -4,7 +4,7 @@ service: ohlaw-www
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   region: us-west-2
   logs:
     restApi: true
