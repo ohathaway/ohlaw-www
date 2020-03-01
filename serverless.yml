@@ -29,7 +29,7 @@ resources:
     cdnDnsRecords: ${file(api/resources/dns_rr_group.yml)}
     #cdnCertificate: ${file(api/resources/cdn_certificate.yml)}
     cdnIdentityConfig: ${file(api/resources/cloudfront_identity.yml)}
-    cdnDistribution: ${file(api/resources/cloudfront_distribution_dev.yml)}
+    cdnDistribution: ${file(api/resources/cloudfront_distribution.yml)}
 
     # Email service configuration
     contactTemplate: ${file(api/resources/contact_template.yml)}
