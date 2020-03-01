@@ -3,7 +3,7 @@ app: ohlaw-www
 service: ohlaw-www
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: dev
   region: us-west-2
   logs:
@@ -26,7 +26,7 @@ resources:
     #site_bucket_policy: ${file(api/resources/site_bucket_policy.yml)}
     #log_bucket: ${file(api/resources/log_bucket.yml)}
     # CDN Distribution
-    cdnDnsRecords: ${file(api/resources/dns_rr_group.yml)}
+    #cdnDnsRecords: ${file(api/resources/dns_rr_group.yml)}
     #cdnCertificate: ${file(api/resources/cdn_certificate.yml)}
     cdnIdentityConfig: ${file(api/resources/cloudfront_identity.yml)}
     cdnDistribution: ${file(api/resources/cloudfront_distribution_dev.yml)}
