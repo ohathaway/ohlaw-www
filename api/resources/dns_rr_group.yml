@@ -3,7 +3,7 @@ Properties:
   Comment: DNS Records for OHLaw web environments
   HostedZoneName: ohlawcolorado.com.
   RecordSets:
-    - Name: www-dev.ohlawcolorado.com.
+    - Name: www-${self:provider.stage}.ohlawcolorado.com.
       AliasTarget:
         DNSName: d7yl6eqavtul3.cloudfront.net
         HostedZoneId: Z2FDTNDATAQYW2
