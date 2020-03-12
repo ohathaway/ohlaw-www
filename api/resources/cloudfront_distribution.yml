@@ -1,5 +1,5 @@
 Type: AWS::CloudFront::Distribution
-#DependsOn: SiteBucket
+DependsOn: SiteBucket
 Properties:
   DistributionConfig:
     Aliases:
@@ -24,7 +24,10 @@ Properties:
       ViewerProtocolPolicy: redirect-to-https
     Origins:
       -
-        DomainName: !GetAtt [SiteBucket, WebsiteURL]
+        DomainName: !Join
+          - ''
+          - - !Ref SiteBucket
+            - .s3.${self:provider.region}.amazonaws.com
         Id: ${self:provider.stage}
         S3OriginConfig:
           OriginAccessIdentity: ''
