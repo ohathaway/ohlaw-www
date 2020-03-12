@@ -19,11 +19,11 @@ Properties:
       DefaultTTL: 300
       ForwardedValues:
         QueryString: false
-      TargetOriginId: dev
+      TargetOriginId: ${self:provider.stage}
       ViewerProtocolPolicy: redirect-to-https
     Origins:
       -
-        DomainName: ohlaw-www-${self:provider.stage}.s3-us-west-2.amazonaws.com
+        DomainName: !Ref SiteBucket
         Id: ${self:provider.stage}
         S3OriginConfig:
           OriginAccessIdentity: ''
