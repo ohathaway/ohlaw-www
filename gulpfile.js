@@ -80,12 +80,13 @@ function jquery() {
 };
 
 // Simple Line Icons
-function line_icons() {
-  return gulp.parallel( gulp.src('./node_modules/simple-line-icons/fonts/**')
-    .pipe(gulp.dest('./src/vendor/simple-line-icons/fonts')),
-    gulp.src('./node_modules/simple-line-icons/css/**')
-      .pipe(gulp.dest('./vendor/simple-line-icons/css'))
-    );
+function line_icons(done) {
+  gulp.src('./node_modules/simple-line-icons/fonts/**')
+    .pipe(gulp.dest('./src/vendor/simple-line-icons/fonts'));
+    
+  gulp.src('./node_modules/simple-line-icons/css/**')
+    .pipe(gulp.dest('./vendor/simple-line-icons/css'));
+  done();
 };
 
 // Google Fonts
@@ -94,7 +95,7 @@ function google_fonts() {
           .pipe(googleFonts({ cssFilename: "google-fonts.css", host: 'fonts.googleapis.com' }))
           .pipe(gulp.dest('./src/css/fonts'))
           ;
-}
+};
 
 // Copy third party libraries from /node_modules into /vendor
 function vendors(done) {
