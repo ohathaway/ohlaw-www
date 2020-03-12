@@ -73,6 +73,7 @@
     "publish": "gulp publish",
     "copy_img": "gulp copy_img",
     "copy_vendors": "gulp copy_vendors",
+    "build_dist": "gulp build_dist",
     "publish_prod": "gulp publish_prod"
   }
 }

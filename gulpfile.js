@@ -27,6 +27,17 @@ var banner = ['/*!\n',
   ''
 ].join('');
 
+const paths = {
+  styles: {
+    src: 'src/styles/**/*.css',
+    dest: 'dist/css/'
+  },
+  scripts: {
+    src: 'src/js/**/*.js',
+    dest: 'dist/js/'
+  }
+};
+
 // Bootstrap JS
 function bootstrap_js() {
  return gulp.src('./node_modules/bootstrap/dist/js/*')
@@ -83,7 +94,7 @@ function jquery() {
 function line_icons(done) {
   gulp.src('./node_modules/simple-line-icons/fonts/**')
     .pipe(gulp.dest('./src/vendor/simple-line-icons/fonts'));
-    
+
   gulp.src('./node_modules/simple-line-icons/css/**')
     .pipe(gulp.dest('./vendor/simple-line-icons/css'));
   done();
@@ -207,7 +218,10 @@ function publish(env, done) {
   //done();
 }
 
-// Publish site to production
+/*
+  Publish site to production
+  */
+
 function copy_img(done) {
   return gulp.src('./src/img/**')
           .pipe(gulp.dest('./dist/img/'))
@@ -221,7 +235,29 @@ function copy_vendors(done) {
 }
 
 function publish_prod(done) {
-  done();
+
+
+  var serverless_config = yaml.parse(fs.readFileSync('./serverless.yml', 'utf8'));
+  var bucket_config = yaml.parse(fs.readFileSync('./api/resources/site_bucket.yml', 'utf8'));
+  var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, 'prod');
+  var publish_options = {
+    region: process.env.AWS_REGION,
+    params: {
+      Bucket: bucket_name
+    }
+  }
+
+  console.log(publish_options);
+
+  var publisher = awspublish.create(publish_options);
+  return gulp.src('./dist/**')
+          .pipe(awspublish.gzip())
+          .pipe(publisher.publish())
+          .pipe(publisher.cache())
+          .pipe(awspublish.reporter())
+  ;
+
+  //done();
 }
 
 // Default task
@@ -239,7 +275,7 @@ exports.jquery       = jquery;
 exports.line_icons   = line_icons;
 // Something broke this plugin
 // exports.google_fonts = google_fonts;
-//exports.vendors      = gulp.parallel(devicons,jquery,line_icons,google_fonts);
+// exports.vendors      = gulp.parallel(devicons,jquery,line_icons,google_fonts);
 exports.vendors      = gulp.parallel(devicons,jquery,line_icons);
 
 exports.css_compile = css_compile;
@@ -255,4 +291,5 @@ exports.publish = publish;
 
 exports.copy_img     = copy_img;
 exports.copy_vendors = copy_vendors;
-exports.publish_prod = publish_prod;
+exports.build_dist   = gulp.series(copy_img, copy_vendors, js_minify, css_compile, css_minify, html_minify)
+exports.publish_prod   = gulp.series(copy_img, copy_vendors, js_minify, css_compile, css_minify, html_minify, publish_prod)
