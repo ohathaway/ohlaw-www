@@ -11,7 +11,7 @@ Properties:
 #    - RoutingRuleCondition:
 #        HttpErrorCodeReturnedEquals: '404'
 #        KeyPrefixEquals: out1/
-DeletionPolicy: Retain
+DeletionPolicy: Delete
 #Outputs:
 #  WebsiteURL:
 #    Value: !GetAtt [siteBucket, WebsiteURL]
