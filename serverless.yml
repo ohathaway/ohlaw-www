@@ -8,6 +8,13 @@ provider:
   region: us-west-2
   logs:
     restApi: true
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'ses:SendEmail'
+        - 'ses:SendTemplatedEmail'
+        - 'ses:SendRawEmail'
+      Resource: '*'
 #package:
 #  include:
 #    - include-me.js
@@ -37,4 +44,4 @@ resources:
     #sesRules: ${file(api/resources/ses_rules.yml)}
 
     # Permissions
-    lambdaPermissionToSes: ${file(api/permissions/lambda_permission_to_ses.yml)}
+    #lambdaPermissionToSes: ${file(api/permissions/lambda_permission_to_ses.yml)}
