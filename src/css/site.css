@@ -9685,6 +9685,11 @@ section {
   padding-bottom: 50px;
 }
 
+#breaking-news {
+  color: #ffffff;
+  background: #001F5B;
+}
+
 #front-splash {
   height: 462px;
   width: 100%;

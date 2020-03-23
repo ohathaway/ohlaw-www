@@ -39,15 +39,15 @@ function bind_default_events() {
     var toggle = $('.learn-more.'+service_name_class);
 
     toggle.click(function(event){
-      toggle.fadeOut(1300, function(){
+      toggle.fadeOut(600, function(){
         toggle.text(function(index, origText){
           return (origText == 'Learn more') ? 'Show less' : 'Learn more';
         });
-        let target = toggle.attr('data-target').replace(/\./g, " ");
+        let target = toggle.attr('href');
         //let target = document.getElementsByClassName(toggle.attr('data-target').replace(/\./, ""));
-        //console.log(target);
+        console.log(target);
         //target[0].scrollIntoView({behavior: 'smooth'});
-        toggle.fadeIn(1300);
+        toggle.fadeIn(600);
       });
     });
   }
@@ -101,5 +101,17 @@ $(document).ready(function() {
       /*$('.navbar-brand > img').attr('style', 'width: 400px;');*/
     }
   }
+
+  var news_toggle = $('.btn.breaking-news');
+
+  news_toggle.click(function(event){
+    news_toggle.fadeOut(600, function(){
+      news_toggle.text(function(index, origText){
+        return (origText == 'Hide') ? 'Show COVID-19 Info' : 'Hide';
+      });
+      let news_target = news_toggle.attr('href');
+      news_toggle.fadeIn(600);
+    });
+  });
 
 });
