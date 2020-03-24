@@ -199,7 +199,7 @@ function html_minify(done) {
 function publish(env, done) {
   var serverless_config = yaml.parse(fs.readFileSync('./serverless.yml', 'utf8'));
   var bucket_config = yaml.parse(fs.readFileSync('./api/resources/site_bucket.yml', 'utf8'));
-  var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, serverless_config.provider.stage);
+  var bucket_name = bucket_config.Properties.BucketName.replace(/\$\{self\:provider\.stage\}/, 'dev');
   var publish_options = {
     region: process.env.AWS_REGION,
     params: {
