@@ -8,8 +8,3 @@ Properties:
         DNSName: d7yl6eqavtul3.cloudfront.net
         HostedZoneId: Z2FDTNDATAQYW2
       Type: A
-    #- Name: 'www-prod.ohlawcolorado.com.'
-    #  AliasTarget:
-    #    DNSName: d7yl6eqavtul3.cloudfront.net
-    #    HostedZoneId: Z2FDTNDATAQYW2
-    #  Type: A
