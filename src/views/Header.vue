@@ -11,7 +11,7 @@
         <a class="nav-item nav-link" href="/#service-nonprofit">NonProfits</a>
         <a class="nav-item nav-link" href="/#service-estate-planning">Estate Planning</a>
         <a class="nav-item nav-link" href="/#service-bankruptcy">Bankruptcy</a>
-        <a class="nav-item nav-link" href="/#generic-contact-form">Contact Us</a>
+        <a class="nav-item nav-link" href="#contact-form">Contact Us</a>
         <a class="nav-item nav-link" href="tel:+19708183052">970-818-3052</a>
         <!-- Display isn't right. Disabled since the content isn't up to date anyway
     <li class="nav-item">

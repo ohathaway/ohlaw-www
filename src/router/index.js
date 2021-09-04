@@ -26,7 +26,12 @@ const routes = [
   {
     path: '/policies/privacy',
     name: 'PoliciesPrivacy',
-    component: () => import(/* webpackChunkName: "policies-fees" */ '../views/PoliciesPrivacy.vue')
+    component: () => import(/* webpackChunkName: "policies-privacy" */ '../views/PoliciesPrivacy.vue')
+  },
+  {
+    path: '/policies/unbundled-services',
+    name: 'PoliciesUnbundled',
+    component: () => import(/* webpackChunkName: "policies-unbundled" */ '../views/PoliciesUnbundled.vue')
   }
 ]
 
@@ -34,6 +39,11 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  window.scrollTo(0, 0)
+  next()
 })
 
 export default router
