@@ -4,6 +4,7 @@
         <ul class="list-unstyled">
           <li><a class="text-white" href="tel:+19708183052"><i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;970-818-3052</a></li>
           <li><i class="fas fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;970-360-7028</li>
+          <li><i class="fas fa-file-contract"></i>&nbsp;&nbsp;&nbsp;&nbsp;<router-link :to="{ name: 'Policies' }" class="text-white">Terms and Conditions</router-link></li>
         </ul>
       </div>
       <div class="col-sm footer-address">

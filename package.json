@@ -27,11 +27,13 @@
     "sass-loader": "^10.0.0",
     "serverless": "^1.64.0",
     "simple-line-icons": "^2.4.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "autoprefixer": "^9.7.4",

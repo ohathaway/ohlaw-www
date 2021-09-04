@@ -1,31 +1,40 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Main></Main>
+    <router-view/>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from './views/Header'
-import Main from './views/Main'
 import Footer from './views/Footer'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Main,
     Footer
   }
 }
 </script>
-
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*color: #2c3e50;*/
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
