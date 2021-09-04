@@ -1,45 +1,48 @@
 {
-  "title": "OHLaw",
   "name": "ohlaw-www",
   "version": "2.0.0",
+  "private": true,
   "description": "A simplified, flat html version of the OHLaw website with no Wordpress",
-  "keywords": [
-    "css",
-    "sass",
-    "html",
-    "responsive",
-    "template"
-  ],
-  "homepage": "https://ohlawcolorado.com",
-  "bugs": {
-    "url": "https://bitbucket.org/ohlaw/ohlaw-www/issues",
-    "email": "feedback@startbootstrap.com"
+  "author": {
+    "name": "OHLaw"
   },
-  "license": "MIT",
-  "author": "OHLaw",
-  "contributors": [
-    "Owen Hathaway (http://ohlawcolorado.com/about/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://ohlaw@bitbucket.org/ohlaw/ohlaw-www.git"
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "aws-sdk": "^2.624.0",
     "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.6.5",
     "devicons": "^1.8.0",
-    "gulp-terser": "^1.2.0",
-    "gulp-useref": "^4.0.1",
-    "jquery": "^3.6.0",
-    "npm": "^6.14.13",
+    "node-sass": "^6.0.1",
     "popper.js": "^1.16.1",
+    "sass-loader": "^10.0.0",
     "serverless": "^1.64.0",
-    "simple-line-icons": "^2.4.1"
+    "simple-line-icons": "^2.4.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
     "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.1.0",
     "browser-sync": "^2.27.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
     "gulp": "^4.0.2",
     "gulp-awspublish": "^4.1.1",
     "gulp-clean-css": "^4.2.0",
@@ -55,24 +58,52 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "serverless-gulp": "^1.0.10",
+    "vue-template-compiler": "^2.6.11",
     "yaml": "^1.7.2"
   },
-  "scripts": {
-    "css_compile": "gulp css_compile",
-    "bootstrap_js": "gulp bootstrap_js",
-    "devicons": "gulp devicons",
-    "jquery": "gulp jquery",
-    "line_icons": "gulp line_icons",
-    "vendors": "gulp devicons && gulp jquery && gulp line_icons",
-    "css_minify": "gulp css_minify",
-    "js_minify": "gulp js_minify",
-    "html_minify": "gulp html_minify",
-    "watch": "gulp watch",
-    "dev": "gulp vendors && gulp css_compile && gulp watch",
-    "publish": "gulp publish",
-    "copy_img": "gulp copy_img",
-    "copy_vendors": "gulp copy_vendors",
-    "build_dist": "gulp build_dist",
-    "publish_prod": "gulp publish_prod"
-  }
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "ohlaw-www@2.0.0",
+  "bugs": {
+    "url": "https://bitbucket.org/ohlaw/ohlaw-www/issues",
+    "email": "feedback@startbootstrap.com"
+  },
+  "contributors": [
+    {
+      "name": "Owen Hathaway",
+      "url": "http://ohlawcolorado.com/about/"
+    }
+  ],
+  "homepage": "https://ohlawcolorado.com",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "template"
+  ],
+  "license": "MIT",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://ohlaw@bitbucket.org/ohlaw/ohlaw-www.git"
+  },
+  "title": "OHLaw"
 }

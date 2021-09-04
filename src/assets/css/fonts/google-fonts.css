@@ -17,20 +17,11 @@
 }
 
 @font-face {
-	font-family: 'undefined';
-	font-style: undefined;
-	font-weight: undefined;
-	font-display: auto;
-	src: local('undefined'), local('undefined'), url(--.woff) format('woff');
-	unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-	font-family: 'Quattrocento';
+	font-family: 'Quatrocento';
 	font-style: normal;
 	font-weight: 700;
 	font-display: auto;
-	src: local('Quattrocento Bold'), local('Quattrocento-Bold'), url(Quattrocento-normal-700.woff) format('woff');
+	src: local('Quatrocento Bold'), local('Quatrocento-Bold'), url(Quatrocento-Bold.woff2) format('woff2');
 	unicode-range: U+0-10FFFF;
 }
 
@@ -51,4 +42,3 @@
 	src: local('Roboto Medium'), local('Roboto-Medium'), url(Roboto-normal-500.woff) format('woff');
 	unicode-range: U+0-10FFFF;
 }
-

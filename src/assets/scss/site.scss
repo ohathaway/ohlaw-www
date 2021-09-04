@@ -2,9 +2,10 @@ $theme-colors: (
   primary: #003399
 );
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+/* @import "@/vendor/bootstrap/";
 @import url(../vendor/fontawesome/css/all.css);
-@import url(./fonts/fonts.css);
+@import url(../fonts/fonts.css);
+*/
 
 
 html {
