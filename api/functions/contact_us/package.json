@@ -7,6 +7,6 @@
   "author": "Owen Hathaway",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.580.0"
+    "aws-sdk": "^2.814.0"
   }
 }
