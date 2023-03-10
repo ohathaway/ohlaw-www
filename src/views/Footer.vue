@@ -15,14 +15,6 @@
           <li>Fort Collins, CO 80528</li>
         </ul>
       </div>
-      <div class="col-sm footer-address">
-        <ul class="list-unstyled">
-          <li><a href="https://goo.gl/maps/6EdMuLeM7A4ReLib9"><i class="fas fa-map text-white"></i></a>&nbsp;&nbsp;&nbsp;<u>Thornton Office:</u></li>
-          <li>12301 Grant St.</li>
-          <li>Suite 203</li>
-          <li>Thornton, CO 80241</li>
-        </ul>
-      </div>
       <div class="col-md footer-address">
         <ul class="list-unstyled">
           <li><i class="fas fa-mail-bulk"></i>&nbsp;&nbsp;&nbsp;<u>Mailing Address:</u></li>
