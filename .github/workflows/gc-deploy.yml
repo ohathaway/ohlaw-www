@@ -1,3 +1,8 @@
+on:
+  push:
+    branches: [ "master", "stage" ]
+  pull_request:
+    branches: [ "master", "stage" ]
 jobs:
   job_id:
     permissions:
